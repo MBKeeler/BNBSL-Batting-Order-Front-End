@@ -1,0 +1,59 @@
+
+#site-body {
+  background-image: url("https://i.imgur.com/aiDjOjp.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: #496d91;
+  color: #fff;
+}
+
+.img-responsive {
+    margin: 0 auto;
+}
+
+.banner {
+margin: auto;
+}
+
+.welcome-box {
+  min-height: 275px;
+  margin: 75px auto 0px auto;
+  width: 60%;
+  background-color: #496d91;
+  text-align: center;
+}
+
+.auth-forms {
+  max-width: 900px;
+  min-height: 200px;
+  margin: auto;
+}
+
+#login {
+  float: left;
+  width: 350px;
+  margin: 20px 120px 20px 25px ;
+}
+
+#register {
+  float: left;
+  width: 350px;
+  margin: 20px 25px 20px 25px
+}
+
+button {
+    background-color: #f4c542;
+    border: none;
+    color: #fff;
+    padding: 3px 6px;
+    margin: 5px 5px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+button:hover {
+  background-color: #f4a742;
+}

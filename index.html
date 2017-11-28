@@ -11,7 +11,50 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body class="container-fluid" id="site-body">
-      <h1>Example</h1>
+      <div id="body-container">
+        <div class="banner">
+        <img class="img-responsive" src="https://i.imgur.com/V3MSs9K.png" alt="Byfield Newbury Baseball & Softball League">
+        <div>
+
+          <!-- starts our primary authentication and welcome-box -->
+                <div class="welcome-box">
+                  <h1>Byfield-Newbury Coach Tools</h1>
+                  <div class="auth-forms">
+                    <div id="login">
+                      <form id="sign-in">
+                        <fieldset>
+                          <legend>Login</legend>
+                          <input type="text" name="credentials[email]"  placeholder="Enter Username">
+                          <br>
+                          <input id="pw-field" type="password" name="credentials[password]"  placeholder="Password">
+                          <br>
+                          <button type="submit" name="submit" value="Login">Login as Member</button>
+                      </fieldset>
+                    </form>
+                    <br>
+                    <div id="signin-message"></div>
+                    </div>
+                    <div id="register">
+                      <form id="sign-up">
+                        <fieldset>
+                          <legend>Register New User</legend>
+                            <input type="text" name="credentials[email]" placeholder="User Name">
+                            <br>
+                            <input type="password" name="credentials[password]" placeholder="Enter a Password">
+                            <br>
+                            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                            <br>
+                            <button type="submit" name="submit" value="Register New User">Register New User</button>
+                        </fieldset>
+                      </form>
+                      <div id="signup-message"></div>
+                    </div>
+                </div>
+              </div>
+          <!-- ends our primary atuthentication and welcome-box -->
+
+      </div>
     </body>
 </html>
