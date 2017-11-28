@@ -1,0 +1,38 @@
+{{#each players as |player|}}
+
+  <!-- -->
+{{#if player}}
+  {{!-- <ul data-id="{{player.id}}"> --}}
+  <table style="width:75%" data-id="{{player.id}}">
+    <thead>
+        <th>Player ID/th>
+        <th>First Name</th>
+        <th>Last Name </th>
+        <th>Team</th>
+        <th>Program</th>
+        <th>Notes</th>
+        <th>Position</th>
+        <th>Batting Position</th>
+        <th>Batting Avg</th>
+    </thead>
+    <tbody>
+        {{#players}}
+        <tr>
+            <td>{{player.id}}</td>
+            <td>{{player.first_name}}</td>
+            <td>{{player.last_name}}</td>
+            <td>{{player.team}}</td>
+            <td>{{player.program}}</td>
+            <td>{{player.notes}}</td>
+            <td>{{player.position}}</td>
+            <td>{{player.batting_position}}</td>
+            <td>{{player.batting_avg}}</td>
+        </tr>
+        {{/players}}
+    <div id="delete"><button id="deleteBttn" value="{{player.id}}" name='delete' type='click'>Delete Player</button></div>
+  </table>
+{{else}}
+    There are no players on record for this user.
+{{/if}}
+
+{{/each}}

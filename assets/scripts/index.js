@@ -1,6 +1,5 @@
 
 'use strict'
-
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./auth/events')
@@ -18,8 +17,3 @@ $(() => {
 $(() => {
   events.addHandlers()
 })
-
-// $(() => {
-//   $('.box_grid').on('click', events.clickSector)
-//   $('.box_grid').on('click', events.example)
-// })
