@@ -1,174 +1,155 @@
 'use strict'
+const getFormFields = require(`../../../lib/get-form-fields`)
+const store = require('../store')
+const api = require('./api')
+const ui = require('./ui')
+const app_api = require('../app/app_api')
+const app_ui = require('../app/app_ui')
 
-const store = require('./../store')
-const getFormFields = require('../../../lib/get-form-fields')
-const appUi = require('./app_ui')
-const appApi = require('./app_api')
+// Authentication handlers
 
-const ontoggleCreateSurvey = function (event) {
-  appUi.toggleCreateSurvey()
-}
-const ontoggleDashboard = function (event) {
-  appUi.toggleDashboard()
-}
-const ontoggleSurveyList = function (event) {
-  appUi.toggleSurveyList()
-  onGetSurveys()
-}
-
-const getQuestionsHTML = (num) => {
-  let questionshtml = ''
-  for (let i = 0; i < num; i++) {
-    questionshtml += "<div id='question'" + (i + 1) + ">" +
-    "<label for='question-title'>Question" + (i + 1) + ":</label>" +
-    "<input type='text' id='question-title' name='survey[questions.question.questionDescription[][" + i + "]] size='50'" + "placeholder='Add question here' required><br>" +
-    "<br>" +
-  "</div>"
-  }
-  return questionshtml
-}
-// This is for showing or hiding # of questions {
-$('select').change(function () {
-  let val = 0
-  let showQuestionsHtml = ''
-  $('select option:selected').each(function () {
-    if ($(this).val() === '1') {
-      val = $(this).val()
-      showQuestionsHtml = getQuestionsHTML(val)
-    } else if ($(this).val() === '2') {
-      val = $(this).val()
-      showQuestionsHtml = getQuestionsHTML(val)
-    } else if ($(this).val() === '3') {
-      val = $(this).val()
-      showQuestionsHtml = getQuestionsHTML(val)
-    } else if ($(this).val() === '4') {
-      val = $(this).val()
-      showQuestionsHtml = getQuestionsHTML(val)
-    } else if ($(this).val() === '5') {
-      val = $(this).val()
-      showQuestionsHtml = getQuestionsHTML(val)
-    }
-  })
-  $('#dynamicQuestions').html(showQuestionsHtml)
-})
-
-const onGetSurveys = function (data) {
-  appApi.getSurveys()
-    .then(appUi.onGetSurveysSuccess)
-    .catch(appUi.onGetSurveysFailure)
-}
-
-const onGetUserSurveys = function (id) {
-  appApi.getSurveys()
-    .then(appUi.onGetUserSurveysSuccess)
-    .catch(appUi.onGetUserSurveysFailure)
-}
-
-const onCreateSurvey = function (event) {
-  event.preventDefault()
+const onSignUp = function (event) {
   const data = getFormFields(this)
-  appApi.createSurvey(data)
-    .then(appUi.onCreateSurveySuccess)
-    .catch(appUi.onCreateSurveyFailure)
+  event.preventDefault()
+  //  console.log('sign-up', data)
+  api.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
 }
 
-const onDeleteSurvey = function (event) {
-  event.preventDefault()
-  const id = $(event.target).data('id')
-  appApi.deleteSurvey(id)
-    .then(appUi.onDeleteSurveySuccess)
-    .then(onGetUserSurveys)
-    .catch(appUi.onDeleteSurveyFailure)
-}
-
-const onShowUpdate = function (event) {
-  event.preventDefault()
-  const id = $(event.target).data('id')
-  appApi.getSurvey(id)
-    .then(appUi.showUpdateForm)
-}
-
-const onUpdateDone = function (event) {
-  event.preventDefault()
-  appUi.closeUpdate()
-}
-
-const onUpdateSurvey = function (event) {
-  event.preventDefault()
-  const id = store.survey.id
+// for sign in
+const onSignIn = function (event) {
   const data = getFormFields(this)
-  appApi.updateSurvey(data, id)
-    .then(appUi.onUpdateSurveySuccess)
-    // .then(appUi.showUpdateForm)
-    .catch(appUi.onUpdateSurveyFailure)
-}
-
-const onTakeSurvey = function (event) {
   event.preventDefault()
-  const id = $(event.target).data('id')
-  appApi.getSurvey(id)
-    .then(appUi.onTakeSurveySuccess)
-    // .then(onGetUserSurveys)
-    .catch(appUi.onTakeSurveyFailure)
+  //  console.log('sign-in', data)
+  //  console.log(data)
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
-const getSurveyResponse = (event) => {
-  const questions = []
-  const anonymous = store.user ? false : true
-  $('.' + $(event.target).data('id')).each((index, ele) => {
-    questions.push({
-      'questionDescription': $(ele).children('input:first').attr('placeholder'),
-      'answer': $(ele).children(':checked').val(),
-      'questionId': $(ele).data('id'),
-      'anonymous': anonymous
-    })
-  })
-  const data = {
-    'surveyresponse': {
-      'surveyId': $(event.target).data('id'),
-      'questions': questions
-    }
+// for signOut
+
+const onSignOut = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+// console.log('onSignOut: ', data)
+  //  console.log(data)
+  api.signOut(data)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
+// for change password
+const onChangePassword = function (event) {
+  event.preventDefault()
+  // console.log('change password ran!')
+  const data = getFormFields(this)
+  // console.log(data)
+  // console.log(data.passwords.old, data.passwords.new)
+  if (data.passwords.old === data.passwords.new) {
+    ui.notUniquePw()
+  } else {
+    api.changePassWord(data)
+      .then(ui.changePWSuccess)
+      .catch(ui.changePWFailure)
   }
-  return data
 }
 
-const onSubmitSurvey = function (event) {
+// app functions I will want to move out into it's own
+const onEnterPlayer = function (event) {
+  const data = getFormFields(this)
   event.preventDefault()
-  const data = getSurveyResponse(event)
-  appApi.submitSurvey(data)
-    .then(appUi.onSubmitSurveySuccess)
-    // .then(onGetUserSurveys)
-    .catch(appUi.onSubmitSurveyFailure)
+  console.log('enterPlayer called', data)
+  // put field check in here
+  app_api.enterPlayer(data)
+    .then(app_ui.enterPlayerSuccess)
+    .catch(app_ui.enterPlayerFailure)
+}
+
+const onModifyPlayer = function (event) {
+  // console.log('onModifyPlayer called')
+  const data = getFormFields(this)
+  event.preventDefault()
+  app_api.modifyPlayer(data)
+    .then(app_ui.modifyPlayerSuccess)
+    .catch(app_ui.modifyPlayerFailure)
+}
+
+const onDeletePlayer = function (event) {
+  // console.log('onDeletePlayer called')
+  // console.log('event.target is', event.target)
+  event.preventDefault()
+  const data = $(event.target).attr('value')
+  // console.log('data', data)
+  app_api.deletePlayer(data)
+    .then(app_ui.deletePlayerSuccess)
+    .catch(app_ui.deletePlayerFailure)
+}
+
+const onFindPlayer = function (event) {
+  // console.log('onFindPlayer called')
+  const data = getFormFields(this)
+  event.preventDefault()
+  //  console.log('sign-up', data)
+  app_api.findPlayer(data)
+    .then(app_ui.findPlayerSuccess)
+    .catch(app_ui.findPlayerFailure)
+}
+// working code.  keep.  using handlebars below
+// const onShowAllPlayers = function (event) {
+//   console.log('onShowAllPlayers called')
+//   const data = getFormFields(this)
+//   event.preventDefault()
+//   app_api.showAllPlayers(data)
+//     .then(app_ui.showAllPlayersSuccess)
+//     .catch(app_ui.showAllPlayersFailure)
+// }
+// toggle view methods
+const onToggleEntryMode = function (event) {
+  app_ui.toggleEntryMode()
+}
+
+const onToggleViewMode = function (event) {
+  app_ui.toggleViewMode()
+}
+const onRevealPwForm = function (event) {
+  app_ui.revealChngPwForm()
+}
+
+const onShowModForm = function (event) {
+  app_ui.toggleModForm()
+}
+
+const onHidePwForm = function (event) {
+  app_ui.hideChngePwForm()
+}
+// handlebars
+const onGetPlayers = (event) => {
+  event.preventDefault()
+  app_api.showAllPlayers()
+    .then(app_ui.getPlayersSuccess)
+    .catch(app_ui.showAllPlayersFailure)
 }
 
 const addHandlers = function () {
-  $('#create-survey').on('click', ontoggleCreateSurvey)
-  $('#view-dashboard').on('click', ontoggleDashboard)
-  $('#view-surveys').on('click', ontoggleSurveyList)
-  $('#create-survey-form').on('submit', onCreateSurvey)
-  $('#view-dashboard').on('click', onGetUserSurveys)
-  $(document).on('click', '#delete-survey', function (e) {
-    onDeleteSurvey(e)
-  })
-  $(document).on('click', '.take', function (e) {
-    onTakeSurvey(e)
-  })
-  $(document).on('click', '#update-survey', function (e) {
-    onShowUpdate(e)
-  })
-  $('#update-survey-form').on('submit', onUpdateSurvey)
-  $('#done-button').on('click', onUpdateDone)
-  // $(document).on('submit', '#update-survey-form', function (e) {
-  //   onUpdateSurvey(e)
-  // })
-  $(document).on('click', '#take-survey', function (e) {
-    onSubmitSurvey(e)
-  })
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#sign-out').on('click', onSignOut)
+  $('#change-password').on('submit', onChangePassword)
+  $('#enter-player').on('submit', onEnterPlayer)
+  // $('#modify-a-player').on('submit', onModifyPlayer)
+  $('#modify-player').on('submit', onModifyPlayer)
+  $('#view-PlayersList').on('click', '#deleteBttn', onDeletePlayer)
+  $('#find-player').on('submit', onFindPlayer)
+  $('#view-allPlayers').on('submit', onGetPlayers)
+  $('#view-mode').on('click', onToggleViewMode)
+  $('#entry-mode').on('click', onToggleEntryMode)
+  $('#view-modify-form').on('click', onShowModForm)
+  $('#change-pw-reveal').on('click', onRevealPwForm)
+  $('#cancel').on('click', onHidePwForm)
 }
 
 module.exports = {
-  addHandlers,
-  onGetSurveys,
-  onCreateSurvey,
-  onGetUserSurveys
+  addHandlers
 }
