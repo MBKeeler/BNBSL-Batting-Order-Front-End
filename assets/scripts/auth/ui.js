@@ -15,7 +15,8 @@ const signUpFailure = function (error) {
 
 const signInSuccess = function (data) {
   console.log(data)
-  $('.enter-data').show()
+  // $('.enter-data').show()
+  $('.coaches-landing').show()
   $('.welcome-box').hide()
   $('.navigation-bar').show()
   $('.navbar-default').show()
@@ -35,6 +36,7 @@ const signOutSuccess = function () {
   $('.view-data').hide()
   $('.navigation-bar').hide()
   $('.navbar-default').hide()
+  $('.coaches-landing').hide()
   $('.welcome-box').show()
   $(':input', '#sign-in').val('')
   $('#signin-message').html('You have signed out successfully').fadeOut(8000)

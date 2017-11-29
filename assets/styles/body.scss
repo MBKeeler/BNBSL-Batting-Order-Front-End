@@ -1,4 +1,4 @@
-
+// set background for site
 #site-body {
   background-image: url("https://i.imgur.com/aiDjOjp.jpg");
   background-repeat: no-repeat;
@@ -7,6 +7,12 @@
   color: #fff;
 }
 
+// Set initial display states
+.navigation-bar, .enter-data, .view-data, #change-password, #modify-a-player, .navbar-default, ,.coaches-landing {
+  display: none;
+}
+
+// makes BNBSL banner responsive & centered
 .img-responsive {
     margin: 0 auto;
 }
@@ -15,6 +21,7 @@
 margin: auto;
 }
 
+// Sign-in & Sign-up forms in landing panel
 .welcome-box {
   min-height: 275px;
   margin: 75px auto 0px auto;
@@ -45,67 +52,44 @@ input {
   margin: 20px 25px 20px 25px
 }
 
-// navbar styling
-button, .navbar-default button {
-    background-color: #f4c542;
-    border: none;
-    color: #fff;
-    padding: 3px 6px;
-    margin: 5px 5px;
-    border-radius: 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-}
-
-.navbar-default > a{
-  color: #fff;
-}
-
-button:hover, .navbar-default button:hover {
-  background-color: #f4a742;
-}
-.navigation-bar {
-  // position: fixed;
-  margin: 25px auto;
-  height: 120px;
-  max-width: 900px;
-}
-
-.navbar-default {
-  max-width: 1000px;
-  margin-top: 5px;
-  background-color: #496d91;
-  color: #fff
-}
-
-.navigation-bar, .enter-data, .view-data, #change-password, #modify-a-player, .navbar-default {
-  display: none;
-}
-
-
-
-.navigation-bar, .enter-data, .view-data, #change-password {
-  background-color: #496d91;
-  color: #fff
-}
-
-#change-password {
-  width: 200px;
-  height: 250px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #000;
-}
-
-.enter-data, .view-data {
+// basic panel definition
+.enter-data, .view-data, .coaches-landing {
   margin: 25px auto;
   max-width: 900px;
   border-style: solid;
-  border-color: #000;
+  border-color: #fff;
   border-width: 2px;
   // min-height: 450px;
+}
+.coaches-landing {
+  min-height: 400px;
+  color: #6b7077;
+  border-color: #496d91;
+}
+
+.coaches-landing > h3{
+margin: 10px 10px;
+text-align: center;
+}
+
+#coaches-instructions {
+  float: right;
+  width: 30%;
+  min-height: 100%;
+  margin-left: 10px;
+  padding: 5px;
+  background-color: #496d91;
+  opacity: 0.25;
+}
+#coaches-instructions > h3, p {
+  color: #496d91;
+  opacity: 1;
+}
+
+.individ-tools {
+  float: left;
+  margin: 30px;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 #view-allPlayers {
@@ -136,23 +120,7 @@ legend {
   color: #f4c542;
 }
 
-#navbar-center {
-  width: 40%;
-  float: right;
-  margin-top: 20px;
-  margin-left: 20px;
-}
 #mode-switch {
   float: right;
   margin-right: 20px;
-}
-
-#nav-message {
-  clear: both;
-  margin: 10px auto;
-  text-align: center;
-}
-
-#nav-message {
-  margin: auto auto auto 50px;
 }

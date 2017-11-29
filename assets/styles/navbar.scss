@@ -1,0 +1,64 @@
+// navbar styling
+button, .navbar-default button {
+    background-color: #f4c542;
+    border: none;
+    color: #fff;
+    padding: 3px 6px;
+    margin: 5px 5px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.navbar-default > a{
+  color: #fff;
+}
+
+button:hover, .navbar-default button:hover {
+  background-color: #f4a742;
+}
+.navigation-bar {
+  // position: fixed;
+  margin: 25px auto;
+  height: 120px;
+  max-width: 900px;
+}
+
+.navbar-default {
+  max-width: 1000px;
+  margin-top: 5px;
+  background-color: #496d91;
+  color: #fff
+}
+
+.navigation-bar, .enter-data, .view-data, #change-password {
+  background-color: #496d91;
+  color: #fff
+}
+
+#change-password {
+  width: 200px;
+  height: 250px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+}
+
+#navbar-center {
+  width: 40%;
+  float: right;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+#nav-message {
+  clear: both;
+  margin: 10px auto;
+  text-align: center;
+}
+
+#nav-message {
+  margin: auto auto auto 50px;
+}
