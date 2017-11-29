@@ -97,6 +97,10 @@ const revealChngPwForm = function () {
 const hideChngePwForm = function () {
   $('#change-password').hide()
 }
+const openBattingRoster = function () {
+  $('.coaches-landing').hide()
+  $('.batting-roster').show()
+}
 
 module.exports = {
   enterPlayerSuccess,
@@ -114,6 +118,7 @@ module.exports = {
   getPlayersSuccess,
   toggleModForm,
   revealChngPwForm,
-  hideChngePwForm
+  hideChngePwForm,
+  openBattingRoster
   // checkFormData
 }

@@ -8,7 +8,7 @@
 }
 
 // Set initial display states
-.navigation-bar, .enter-data, .view-data, #change-password, #modify-a-player, .navbar-default, ,.coaches-landing {
+.navigation-bar, .enter-data, .view-data, #change-password, #modify-a-player, .navbar-default, ,.coaches-landing, .batting-roster {
   display: none;
 }
 
@@ -53,7 +53,7 @@ input {
 }
 
 // basic panel definition
-.enter-data, .view-data, .coaches-landing {
+.enter-data, .view-data, .coaches-landing, .batting-roster {
   margin: 25px auto;
   max-width: 900px;
   border-style: solid;
@@ -89,7 +89,20 @@ text-align: center;
 .individ-tools {
   float: left;
   margin: 30px;
-  box-shadow: 10px 10px 5px #888888;
+  // box-shadow: 10px 10px 5px #888888;
+}
+
+.tool-button {
+  background-color: none;
+  border: none;
+  padding: 3px 6px;
+  margin: 5px 5px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.tool-button:hover {
+  background-color: #f4a742;
 }
 
 #view-allPlayers {

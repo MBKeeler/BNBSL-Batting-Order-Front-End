@@ -124,6 +124,13 @@ const onShowModForm = function (event) {
 const onHidePwForm = function (event) {
   app_ui.hideChngePwForm()
 }
+
+const onOpenBattingRoster = function (event) {
+  console.log('onPoenBattingRoster called')
+  event.preventDefault()
+  app_ui.openBattingRoster()
+}
+
 // handlebars
 const onGetPlayers = (event) => {
   event.preventDefault()
@@ -148,6 +155,7 @@ const addHandlers = function () {
   $('#view-modify-form').on('click', onShowModForm)
   $('#change-pw-reveal').on('click', onRevealPwForm)
   $('#cancel').on('click', onHidePwForm)
+  $('#batting-roster').on('submit', onOpenBattingRoster)
 }
 
 module.exports = {

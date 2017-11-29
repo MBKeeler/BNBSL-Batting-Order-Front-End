@@ -1,0 +1,40 @@
+#roster-entry {
+  min-height: 500px;
+  margin: auto;
+  background-color: #659966;
+  // background-image: url("https://i.imgur.com/qottp7T.png");
+  // background-size: 50%;
+  // background-repeat: no-repeat;
+  // background-position: left;
+  border-style: solid;
+  border-color: blue;
+  border-width: 1px;
+}
+
+#batting-roster-tool {
+  background-image: url("https://i.imgur.com/3cdbMj8.png?1") ;
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+#player-eval-tool {
+  background-image: url("https://i.imgur.com/luOKbFw.png?1") ;
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+#player-form-entry, #player-map {
+  float: left;
+  margin: auto 10px;
+}
+
+ #player-form-entry {
+   background-color: #659966;
+ }
+ #enter-player > input, option {
+   color: #000;
+ }
