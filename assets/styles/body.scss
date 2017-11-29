@@ -45,7 +45,8 @@ input {
   margin: 20px 25px 20px 25px
 }
 
-button {
+// navbar styling
+button, .navbar-default button {
     background-color: #f4c542;
     border: none;
     color: #fff;
@@ -58,7 +59,11 @@ button {
     font-size: 14px;
 }
 
-button:hover {
+.navbar-default > a{
+  color: #fff;
+}
+
+button:hover, .navbar-default button:hover {
   background-color: #f4a742;
 }
 .navigation-bar {
@@ -68,17 +73,18 @@ button:hover {
   max-width: 900px;
 }
 
-#boot-nav {
-margin: auto;
-  display: inline-block;
-  float: none;
-  text-align: center;
-  max-width: 900px;
+.navbar-default {
+  max-width: 1000px;
+  margin-top: 5px;
+  background-color: #496d91;
+  color: #fff
 }
 
-.navigation-bar, .enter-data, .view-data, #change-password, #modify-a-player {
+.navigation-bar, .enter-data, .view-data, #change-password, #modify-a-player, .navbar-default {
   display: none;
 }
+
+
 
 .navigation-bar, .enter-data, .view-data, #change-password {
   background-color: #496d91;
