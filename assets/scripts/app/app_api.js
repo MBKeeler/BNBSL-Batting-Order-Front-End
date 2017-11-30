@@ -39,7 +39,7 @@ const deletePlayer = function (data) {
   })
 }
 
-const findPlayer = function (data) {
+const findPlayers = function (data) {
 //  console.log('app_api.findPlayer called', data)
   return $.ajax({
     url: config.apiOrigin + '/players',
@@ -80,7 +80,7 @@ module.exports = {
   enterPlayer,
   modifyPlayer,
   deletePlayer,
-  findPlayer,
+  findPlayers,
   showAllPlayers,
   enterSeason
 }
