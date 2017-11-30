@@ -19,7 +19,7 @@
         </div>
           <!-- starts our navigation-bar viewable in the app body -->
                 <div class="navigation-bar">
-                    <div id="signout"><button id="sign-out" type="click" name="submit">Log Out</button>
+                    <div id="navbutton"><button id="sign-out" type="click" name="submit">Log Out</button>
                     </div>
                     <div id="change-PW">
                       <button id="change-pw-reveal" type="click">Change Password</button>
@@ -36,6 +36,7 @@
                         <p id="change-pw-message"></p>
                       </form>
                     </div>
+                    <div id="navbutton"><div><button type="click" id="return-to-tools"name="return-to-tools" value="Return to Coaches Tools">Return To Tools</button></div></div>
 
                   <div id="navbar-center">
                       <div id="nav-message"></div>
@@ -114,8 +115,8 @@
               <fieldset>
                 <legend>Enter Player Information</legend>
                 <p class="important_message">All fields except Notes and Batting Average are required.</p>
-                <label for="season">Season:</label>
-                  <select id="season" name="player[season]" required>
+                <!-- <label for="season">Season:</label>
+                  <select id="season" name="season[year]" >
                       <option value="" disabled="disabled" selected="selected">Season</option>
                       <option value="2018">2018</option>
                       <option value="2019">2019</option>
@@ -123,7 +124,7 @@
                       <option value="2021">2021</option>
                       <option value="2022">2022</option>
                       <option value="2023">2023</option>
-                  </select>
+                  </select> -->
                   <br>
                   <label for="team">Team:</label> <select id="team" name="player[team]" required>
                     <option value="" disabled="disabled" selected="selected">Team</option>
@@ -190,7 +191,6 @@
               </fieldset>
             </form>
             <button type="click" id="view-rosters" name="view-rosters" value="View Rosters">View My Rosters</button>
-            <button type="click" id="return-to-tools"name="return-to-tools" value="Return to Coaches Tools">Return To Tools</button>
           </div>
           </div>
         </div>
@@ -200,6 +200,9 @@
         <div class="view-roster-panel">
           <div id="view-roster">
             <div id="dynamic-field-map">
+              <!-- <img id="dynamic-map" src="https://i.imgur.com/qottp7T.png" alt="Baseball Diamond"> -->
+                <div id="display-roster">
+                </div>
             </div>
             <div id="my-rosters">
               <form id="find-roster">
@@ -225,8 +228,6 @@
                 <button type="submit" name="submit" value="Display Roster">Display Roster</button>
             </form>
             </div>
-            <button type="click" id="return-to-tools"name="return-to-tools" value="Return to Coaches Tools">Return To Tools</button>
-
           </div>
         </div>
         <!-- end roster view panel -->
@@ -274,7 +275,6 @@
           </fieldset>
         </form>
         <button type="click" id="view-seasons" name="view-rosters" value="View Seasons">View My Seasons</button>
-        <button type="click" id="return-to-tools"name="return-to-tools" value="Return to Coaches Tools">Return To Tools</button>
         </div>
         </div>
         <!-- end enter season panel -->
@@ -282,7 +282,6 @@
           <div class="view-seasons-panel">
             <div id="view-season">
             some text
-            <button type="click" id="return-to-tools"name="return-to-tools" value="Return to Coaches Tools">Return To Tools</button>
             </div>
           </div>
 

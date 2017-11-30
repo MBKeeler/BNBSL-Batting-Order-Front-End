@@ -40,8 +40,20 @@
  }
 
 #dynamic-field-map {
+  float: left;
+  min-height: 700px;
+  min-width: 550px;
   background-image: url("https://i.imgur.com/qottp7T.png");
-  // background-size: 50%;
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: top;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #f4c542;
+  background-color: #659966;
+}
+
+#display-roster {
+  margin-top: 500px auto;
+  min-height: 100px;
+  width: 500px;
 }

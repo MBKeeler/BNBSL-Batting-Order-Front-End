@@ -71,8 +71,7 @@ const getPlayersSuccess = (data) => {
   $('#view-PlayersList').show()
   $('#view-PlayersList').empty()
   const showPlayersHtml = showPlayerTemplate({ players: data.players })
-  $('#view-PlayersList').append(showPlayersHtml)
-  // $('#view-allPlayers').append(showPlayersHtml)
+  $('#display-roster').append(showPlayersHtml)
 }
 
 const toggleViewMode = function () {
@@ -104,8 +103,13 @@ const openBattingRoster = function () {
 }
 
 const returnToTools = function () {
+  $('.view-roster-panel').hide()
+  $('#view-season').hide()
+  $('#season-panel').hide()
+  $('.enter-seasons-panel').hide()
   $('.batting-roster').hide()
-  $('.enter-season-panel').show()
+  $('.view-seasons-panel').hide()
+  $('.coaches-landing').show()
 }
 
 const viewRosters = function () {
