@@ -37,12 +37,12 @@ const modifyPlayerFailure = function (error) {
   $('#nav-message').show().html('Updates to this player were note saved. Verify all fields in the form are filled in correctly and that you are an owner of this player.').fadeOut(8000)
 }
 
-const findPlayerSuccess = function (data) {
+const findPlayersSuccess = function (data) {
 //  console.log('findPlayerSuccess called', data)
   $('show-a-player').html('data goes here: ' + data)
 }
 
-const findPlayerFailure = function (error) {
+const findPlayersFailure = function (error) {
   console.log('findPlayerFailure called', error)
   $('#nav-message').show().html('Player could not be found. Check your criteria and try again.').fadeOut(8000)
 }
@@ -142,8 +142,8 @@ module.exports = {
   enterPlayerFailure,
   modifyPlayerSuccess,
   modifyPlayerFailure,
-  findPlayerSuccess,
-  findPlayerFailure,
+  findPlayersSuccess,
+  findPlayersFailure,
   deletePlayerSuccess,
   deletePlayerFailure,
   // showAllPlayersSuccess,

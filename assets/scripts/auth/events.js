@@ -87,14 +87,14 @@ const onDeletePlayer = function (event) {
     .catch(app_ui.deletePlayerFailure)
 }
 
-const onFindPlayer = function (event) {
+const onFindPlayers = function (event) {
   // console.log('onFindPlayer called')
   const data = getFormFields(this)
   event.preventDefault()
   //  console.log('sign-up', data)
-  app_api.findPlayer(data)
-    .then(app_ui.findPlayerSuccess)
-    .catch(app_ui.findPlayerFailure)
+  app_api.findPlayers(data)
+    .then(app_ui.findPlayersSuccess)
+    .catch(app_ui.findPlayersFailure)
 }
 
 // start functions for editSeasons
@@ -183,7 +183,7 @@ const addHandlers = function () {
   // $('#modify-a-player').on('submit', onModifyPlayer)
   $('#modify-player').on('submit', onModifyPlayer)
   $('#view-PlayersList').on('click', '#deleteBttn', onDeletePlayer)
-  $('#find-player').on('submit', onFindPlayer)
+  $('#find-roster').on('submit', onFindPlayers)
   $('#view-allPlayers').on('submit', onGetPlayers)
   $('#view-mode').on('click', onToggleViewMode)
   $('#entry-mode').on('click', onToggleEntryMode)

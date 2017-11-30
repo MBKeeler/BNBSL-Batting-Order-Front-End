@@ -1,5 +1,6 @@
 // navbar styling
-button, .navbar-default button {
+button {
+    float: left;
     background-color: #f4c542;
     border: none;
     color: #fff;
@@ -12,25 +13,16 @@ button, .navbar-default button {
     font-size: 14px;
 }
 
-.navbar-default > a{
-  color: #fff;
+button:hover {
+  background-color: #f4a742;
+  opacity: .5;
 }
 
-button:hover, .navbar-default button:hover {
-  background-color: #f4a742;
-}
 .navigation-bar {
   // position: fixed;
-  margin: 25px auto;
-  height: 120px;
-  max-width: 900px;
-}
-
-.navbar-default {
+  margin: 10px auto;
+  min-height: 60px;
   max-width: 1000px;
-  margin-top: 5px;
-  background-color: #496d91;
-  color: #fff
 }
 
 .navigation-bar, .enter-data, .view-data, #change-password {
@@ -41,24 +33,48 @@ button:hover, .navbar-default button:hover {
 #change-password {
   width: 200px;
   height: 250px;
+  margin: auto;
   border-style: solid;
   border-width: 1px;
   border-color: #000;
 }
 
-#navbar-center {
-  width: 40%;
+#signout{
+  float: left;
+  margin: 10px;
+}
+
+#change-PW {
+  width: 20%;
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#change-pw-message {
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #f4c542;
+}
+
+#mode-switch {
   float: right;
-  margin-top: 20px;
+  margin-right: 20px;
+}
+
+#navbar-center {
+  width: 50%;
+  float: right;
+  margin-top: 10px;
   margin-left: 20px;
 }
 
 #nav-message {
-  clear: both;
+  // clear: both;
   margin: 10px auto;
   text-align: center;
 }
 
-#nav-message {
-  margin: auto auto auto 50px;
-}
+// #nav-message {
+//   margin: auto auto auto 50px;
+// }
