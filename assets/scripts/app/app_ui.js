@@ -97,9 +97,44 @@ const revealChngPwForm = function () {
 const hideChngePwForm = function () {
   $('#change-password').hide()
 }
+
 const openBattingRoster = function () {
   $('.coaches-landing').hide()
   $('.batting-roster').show()
+}
+
+const returnToTools = function () {
+  $('.batting-roster').hide()
+  $('.enter-season-panel').show()
+}
+
+const viewRosters = function () {
+  $('.batting-roster').hide()
+  $('.view-roster-panel').show()
+}
+// begin Season methods
+
+const enterSeasonSuccess = function () {
+//  console.log('data entered successfully')
+  // $('#view-PlayersList').empty()
+  $('#nav-message').show().html('New Season data entered successfully').fadeOut(8000)
+  $(':input', '#enter-player').val('')
+}
+
+const enterSeasonFailure = function (error) {
+  console.error('enterSeason failed: ', error)
+  // $('#view-PlayersList').empty()
+  $('#nav-message').show().html('Player failed to save.  Please verify you have filled out all required fields correctly.').fadeOut(8000)
+}
+
+const editSeasons = function () {
+  $('.coaches-landing').hide()
+  $('.enter-season-panel').show()
+}
+
+const viewSeasons = function () {
+  $('.enter-season-panel').hide()
+  $('.view-seasons-panel').show()
 }
 
 module.exports = {
@@ -119,6 +154,12 @@ module.exports = {
   toggleModForm,
   revealChngPwForm,
   hideChngePwForm,
-  openBattingRoster
+  openBattingRoster,
+  viewRosters,
+  returnToTools,
+  viewSeasons,
+  editSeasons,
+  enterSeasonSuccess,
+  enterSeasonFailure
   // checkFormData
 }

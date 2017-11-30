@@ -96,6 +96,17 @@ const onFindPlayer = function (event) {
     .then(app_ui.findPlayerSuccess)
     .catch(app_ui.findPlayerFailure)
 }
+
+// start functions for editSeasons
+const onEnterSeason = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  console.log('onEnterSeason called', data)
+  // put field check in here
+  app_api.enterSeason(data)
+    .then(app_ui.enterSeasonSuccess)
+    .catch(app_ui.enterSeasonFailure)
+}
 // working code.  keep.  using handlebars below
 // const onShowAllPlayers = function (event) {
 //   console.log('onShowAllPlayers called')
@@ -131,6 +142,30 @@ const onOpenBattingRoster = function (event) {
   app_ui.openBattingRoster()
 }
 
+const onReturnToTools = function (event) {
+  console.log('onReturnToTools called')
+  event.preventDefault()
+  app_ui.returnToTools()
+}
+
+const onViewRosters = function (event) {
+  console.log('onViewRosters called')
+  event.preventDefault()
+  app_ui.viewRosters()
+}
+
+const onEditSeasons = function (event) {
+  console.log('onEditSeasons called')
+  event.preventDefault()
+  app_ui.editSeasons()
+}
+
+const onViewSeasons = function (event) {
+  console.log('onViewSeasons called')
+  event.preventDefault()
+  app_ui.viewSeasons()
+}
+
 // handlebars
 const onGetPlayers = (event) => {
   event.preventDefault()
@@ -156,6 +191,11 @@ const addHandlers = function () {
   $('#change-pw-reveal').on('click', onRevealPwForm)
   $('#cancel').on('click', onHidePwForm)
   $('#batting-roster').on('submit', onOpenBattingRoster)
+  $('#return-to-tools').on('click', onReturnToTools)
+  $('#view-rosters').on('click', onViewRosters)
+  $('#seasons').on('submit', onEditSeasons)
+  $('#enter-season').on('submit', onEnterSeason)
+  $('#view-seasons').on('click', onViewSeasons)
 }
 
 module.exports = {

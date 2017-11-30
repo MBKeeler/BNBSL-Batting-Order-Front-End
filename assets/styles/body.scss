@@ -8,7 +8,7 @@
 }
 
 // Set initial display states
-.navigation-bar, .enter-data, .view-data, #change-password, #modify-a-player, .navbar-default, ,.coaches-landing, .batting-roster {
+.navigation-bar, .enter-data, .view-data, #change-password, #modify-a-player, .navbar-default, ,.coaches-landing, .batting-roster, .view-roster-panel, .view-seasons-panel, .enter-season-panel {
   display: none;
 }
 
@@ -53,7 +53,7 @@ input {
 }
 
 // basic panel definition
-.enter-data, .view-data, .coaches-landing, .batting-roster {
+.enter-data, .view-data, .coaches-landing, .batting-roster, .view-roster-panel, .view-seasons-panel, .enter-season-panel  {
   margin: 25px auto;
   max-width: 900px;
   border-style: solid;

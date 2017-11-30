@@ -37,8 +37,11 @@ const signOutSuccess = function () {
   $('.navigation-bar').hide()
   $('.navbar-default').hide()
   $('.coaches-landing').hide()
+  $('.batting-roster').hide()
+  $('.view-roster-panel').hide()
   $('.welcome-box').show()
   $(':input', '#sign-in').val('')
+  $(':input', '#enter-player').val('')
   $('#signin-message').html('You have signed out successfully').fadeOut(8000)
   // need to clear memory of the user information which includes token and auth header
   store.user = null
