@@ -40,7 +40,7 @@ const deletePlayer = function (data) {
 }
 
 const findPlayers = function (data) {
-//  console.log('app_api.findPlayer called', data)
+ console.log('app_api.findPlayer called', data)
   return $.ajax({
     url: config.apiOrigin + '/players',
     method: 'GET',

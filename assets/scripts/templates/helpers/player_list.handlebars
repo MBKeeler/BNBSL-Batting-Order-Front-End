@@ -1,9 +1,9 @@
 {{#each players as |player|}}
 
   <!-- -->
-{{#if player}}
 
-  <table style="width:55%">
+
+  <table style="width:75%">
     <thead>
         <th>Player ID</th>
         <th>First Name</th>
@@ -15,6 +15,7 @@
         <th>Batting Position</th>
         <th>Batting Avg</th>
     </thead>
+    {{#if player}}
     <tbody>
         <tr bgcolor="#cd9966" data-id="{{player.id}}">
             <td>{{player.id}}</td>
@@ -30,7 +31,7 @@
         </tr>
   </table>
 {{else}}
-    There are no players on record for this user.
+    There are no players recorded for this batting order.
 {{/if}}
 
 {{/each}}

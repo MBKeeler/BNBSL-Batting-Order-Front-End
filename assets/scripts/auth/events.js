@@ -183,7 +183,8 @@ const onViewSeasons = function (event) {
 // handlebars
 const onGetPlayers = (event) => {
   event.preventDefault()
-  app_api.showAllPlayers()
+  console.log('onGetplayers event:', event)
+  app_api.findPlayers(event)
     .then(app_ui.getPlayersSuccess)
     .catch(app_ui.showAllPlayersFailure)
 }

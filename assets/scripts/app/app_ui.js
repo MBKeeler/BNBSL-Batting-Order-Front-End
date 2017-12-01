@@ -2,7 +2,7 @@
 // const config = require('../config')
 // const store = require('../store')
 const app_api = require('./app_api')
-const showPlayerTemplate = require('../templates/helpers/player_list.handlebars')
+const showBattingOrderTemplate = require('../templates/helpers/player_list.handlebars')
 const showSeasonTemplate = require('../templates/helpers/season_list.handlebars')
 const selectSeasonTemplate = require('../templates/helpers/season_select.handlebars')
 
@@ -52,20 +52,12 @@ const deletePlayerFailure = function (error) {
   $('#nav-message').show().html('Player was not deleted. Verify you are an owner of this player before trying to delete.').fadeOut(8000)
 }
 
-// const showAllPlayersSuccess = function (data) {
-//   console.log('showAllPlayersSuccess called', data)
-// }
-//
-// const showAllPlayersFailure = function (error) {
-//   console.log('showAllPlayersFailure called', error)
-// }
-
 const getPlayersSuccess = (data) => {
   // console.log(data)
   $('#view-PlayersList').show()
   $('#view-PlayersList').empty()
-  const showPlayersHtml = showPlayerTemplate({ players: data.players })
-  $('#display-roster').append(showPlayersHtml)
+  const showOrderHtml = showBattingOrderTemplate({ players: data.players })
+  $('#display-roster').append(showOrderHtml)
 }
 
 const toggleViewMode = function () {
