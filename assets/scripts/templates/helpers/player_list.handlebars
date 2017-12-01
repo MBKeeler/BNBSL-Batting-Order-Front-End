@@ -2,10 +2,10 @@
 
   <!-- -->
 {{#if player}}
-  {{!-- <ul data-id="{{player.id}}"> --}}
-  <table style="width:75%" data-id="{{player.id}}">
+
+  <table style="width:55%">
     <thead>
-        <th>Player ID/th>
+        <th>Player ID</th>
         <th>First Name</th>
         <th>Last Name </th>
         <th>Team</th>
@@ -16,8 +16,7 @@
         <th>Batting Avg</th>
     </thead>
     <tbody>
-        {{#players}}
-        <tr>
+        <tr bgcolor="#cd9966" data-id="{{player.id}}">
             <td>{{player.id}}</td>
             <td>{{player.first_name}}</td>
             <td>{{player.last_name}}</td>
@@ -27,9 +26,8 @@
             <td>{{player.position}}</td>
             <td>{{player.batting_position}}</td>
             <td>{{player.batting_avg}}</td>
+            <td><button id="deleteBttn" value="{{player.id}}" name='delete' type='click'>Delete Player</button></td>
         </tr>
-        {{/players}}
-    <div id="delete"><button id="deleteBttn" value="{{player.id}}" name='delete' type='click'>Delete Player</button></div>
   </table>
 {{else}}
     There are no players on record for this user.

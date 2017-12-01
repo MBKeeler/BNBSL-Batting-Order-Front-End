@@ -76,11 +76,24 @@ const enterSeason = function (data) {
   })
 }
 
+const viewSeasons = function () {
+  console.log('app_api.viewSeasons called:')
+  return $.ajax({
+    url: config.apiOrigin + '/seasons',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+    // data
+  })
+}
+
 module.exports = {
   enterPlayer,
   modifyPlayer,
   deletePlayer,
   findPlayers,
   showAllPlayers,
+  viewSeasons,
   enterSeason
 }

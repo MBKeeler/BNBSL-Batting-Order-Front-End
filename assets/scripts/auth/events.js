@@ -158,12 +158,23 @@ const onEditSeasons = function (event) {
   console.log('onEditSeasons called')
   event.preventDefault()
   app_ui.editSeasons()
+  app_api.viewSeasons()
+    .then(app_ui.viewSeasonsSuccess)
+    .catch(app_ui.viewSeasonsFailure)
 }
 
+// const onGetSeasons = function (event) {
+//   console.log('onEditSeasons called')
+//   event.preventDefault()
+//   app_ui.editSeasons()
+// }
+
 const onViewSeasons = function (event) {
-  console.log('onViewSeasons called')
+  console.log('onViewSeasons called', event)
   event.preventDefault()
-  app_ui.viewSeasons()
+  app_api.viewSeasons()
+    .then(app_ui.viewSeasonsSuccess)
+    .catch(app_ui.viewSeasonsFailure)
 }
 
 // handlebars

@@ -3,7 +3,7 @@
 // const store = require('../store')
 const app_api = require('./app_api')
 const showPlayerTemplate = require('../templates/helpers/player_list.handlebars')
-// const store = require('../store')
+const showSeasonTemplate = require('../templates/helpers/season_list.handlebars')
 
 const enterPlayerSuccess = function () {
 //  console.log('data entered successfully')
@@ -134,11 +134,22 @@ const enterSeasonFailure = function (error) {
 const editSeasons = function () {
   $('.coaches-landing').hide()
   $('.enter-season-panel').show()
+  $('#season-panel').show()
 }
 
-const viewSeasons = function () {
-  $('.enter-season-panel').hide()
-  $('.view-seasons-panel').show()
+const viewSeasonsSuccess = function (data) {
+  // $('.enter-season-panel').hide()
+  // $('.view-seasons-panel').show()
+  // $('#view-season').show()
+  const showSeasonHtml = showSeasonTemplate({ seasons: data.seasons })
+  $('#season-display-target').append(showSeasonHtml)
+  $('#nav-message').show().html('Seasons for current user').fadeOut(8000)
+}
+
+const viewSeasonsFailure = function (error) {
+  console.error('viewSeasons failed: ', error)
+  // $('#view-PlayersList').empty()
+  $('#nav-message').show().html('Failed to retrieve seasons from the server.').fadeOut(8000)
 }
 
 module.exports = {
@@ -161,7 +172,8 @@ module.exports = {
   openBattingRoster,
   viewRosters,
   returnToTools,
-  viewSeasons,
+  viewSeasonsSuccess,
+  viewSeasonsFailure,
   editSeasons,
   enterSeasonSuccess,
   enterSeasonFailure

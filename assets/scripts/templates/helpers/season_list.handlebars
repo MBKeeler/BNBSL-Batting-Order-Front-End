@@ -1,0 +1,29 @@
+{{#each seasons as |season|}}
+
+{{!-- {{#if season}} --}}
+
+  <table style="width:500px" cellspacing="25">
+    <thead>
+        <th>Season ID</th>
+        <th>Year</th>
+        <th>Team</th>
+        <th>Program</th>
+        <th>Actions</th>
+    </thead>
+    {{#if season}}
+    <tbody>
+        {{!-- {{#seasons}} --}}
+        <tr bgcolor="#cd9966" data-id="{{season.id}}">
+            <td align="center">{{season.id}}</td>
+            <td>{{season.year}}</td>
+            <td>{{season.team}}</td>
+            <td>{{season.program}}</td>
+            <td><button id="deleteSeasonBttn" value="{{season.id}}" name='delete' type='click'>Delete Season</button></td>
+        </tr>
+        {{!-- {{/seasons}} --}}
+  </table>
+{{else}}
+    There are no seasons on record for this user.
+{{/if}}
+
+{{/each}}
