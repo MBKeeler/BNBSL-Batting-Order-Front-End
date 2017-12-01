@@ -137,9 +137,12 @@ const onHidePwForm = function (event) {
 }
 
 const onOpenBattingRoster = function (event) {
-  console.log('onPoenBattingRoster called')
+  console.log('onOpenBattingRoster called')
   event.preventDefault()
   app_ui.openBattingRoster()
+  app_api.viewSeasons()
+    .then(app_ui.viewSeasonsToSelectSuccess)
+    .catch(app_ui.viewSeasonsToSelectFailure)
 }
 
 const onReturnToTools = function (event) {
@@ -185,6 +188,14 @@ const onGetPlayers = (event) => {
     .catch(app_ui.showAllPlayersFailure)
 }
 
+const onSelectSeason = (event) => {
+  event.preventDefault()
+  console.log('onSelectSeason called', event)
+  const data = $(event.target).attr('value')
+  console.log('data', data)
+  app_ui.populateSeason(data)
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -194,6 +205,8 @@ const addHandlers = function () {
   // $('#modify-a-player').on('submit', onModifyPlayer)
   $('#modify-player').on('submit', onModifyPlayer)
   $('#view-PlayersList').on('click', '#deleteBttn', onDeletePlayer)
+  $('#select-season-target').on('click', '#selectSeasonBttn', onSelectSeason)
+  // $('#view-PlayersList').on('click', '#deleteBttn', onDeleteSeason)
   $('#find-roster').on('submit', onFindPlayers)
   $('#view-allPlayers').on('submit', onGetPlayers)
   $('#view-mode').on('click', onToggleViewMode)

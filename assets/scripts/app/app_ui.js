@@ -4,6 +4,7 @@
 const app_api = require('./app_api')
 const showPlayerTemplate = require('../templates/helpers/player_list.handlebars')
 const showSeasonTemplate = require('../templates/helpers/season_list.handlebars')
+const selectSeasonTemplate = require('../templates/helpers/season_select.handlebars')
 
 const enterPlayerSuccess = function () {
 //  console.log('data entered successfully')
@@ -11,13 +12,6 @@ const enterPlayerSuccess = function () {
   $('#nav-message').show().html('New player data entered successfully').fadeOut(8000)
   $(':input', '#enter-player').val('')
 }
-
-// const checkFormData = function () {
-// //  console.log('data entered successfully')
-//   $('#view-PlayersList').empty()
-//   $('#nav-message').show().html('All form fields except notes are required. Please veify you have entered valid form data').fadeOut(8000)
-//   $(':input', '#enter-player').val('')
-// }
 
 const enterPlayerFailure = function (error) {
   console.error('enterPlayer failed: ', error)
@@ -109,6 +103,8 @@ const returnToTools = function () {
   $('.enter-seasons-panel').hide()
   $('.batting-roster').hide()
   $('.view-seasons-panel').hide()
+  $('#season-display-target').empty()
+  $('#select-season-target').empty()
   $('.coaches-landing').show()
 }
 
@@ -137,10 +133,18 @@ const editSeasons = function () {
   $('#season-panel').show()
 }
 
+const viewSeasonsToSelectSuccess = function (data) {
+  const showSeasonHtml = selectSeasonTemplate({ seasons: data.seasons })
+  $('#select-season-target').append(showSeasonHtml)
+  $('#nav-message').show().html('Seasons available for current user').fadeOut(8000)
+}
+const viewSeasonsToSelectFailure = function (error) {
+  console.error('viewSeasons failed: ', error)
+  // $('#view-PlayersList').empty()
+  $('#nav-message').show().html('Failed to retrieve seasons from the server.').fadeOut(8000)
+}
+
 const viewSeasonsSuccess = function (data) {
-  // $('.enter-season-panel').hide()
-  // $('.view-seasons-panel').show()
-  // $('#view-season').show()
   const showSeasonHtml = showSeasonTemplate({ seasons: data.seasons })
   $('#season-display-target').append(showSeasonHtml)
   $('#nav-message').show().html('Seasons for current user').fadeOut(8000)
@@ -152,6 +156,11 @@ const viewSeasonsFailure = function (error) {
   $('#nav-message').show().html('Failed to retrieve seasons from the server.').fadeOut(8000)
 }
 
+const populateSeason = function (data) {
+  console.log('populateSeason data is', data)
+  $('.season-input').val(data)
+}
+
 module.exports = {
   enterPlayerSuccess,
   enterPlayerFailure,
@@ -161,8 +170,6 @@ module.exports = {
   findPlayersFailure,
   deletePlayerSuccess,
   deletePlayerFailure,
-  // showAllPlayersSuccess,
-  // showAllPlayersFailure,
   toggleEntryMode,
   toggleViewMode,
   getPlayersSuccess,
@@ -176,6 +183,9 @@ module.exports = {
   viewSeasonsFailure,
   editSeasons,
   enterSeasonSuccess,
-  enterSeasonFailure
+  enterSeasonFailure,
+  viewSeasonsToSelectSuccess,
+  viewSeasonsToSelectFailure,
+  populateSeason
   // checkFormData
 }

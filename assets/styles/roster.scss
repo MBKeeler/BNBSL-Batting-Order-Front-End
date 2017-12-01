@@ -2,10 +2,6 @@
   min-height: 500px;
   margin: auto;
   background-color: #659966;
-  // background-image: url("https://i.imgur.com/qottp7T.png");
-  // background-size: 50%;
-  // background-repeat: no-repeat;
-  // background-position: left;
   border-style: solid;
   border-color: blue;
   border-width: 1px;
@@ -27,17 +23,22 @@
   box-shadow: 10px 10px 5px #888888;
 }
 
-#player-form-entry, #player-map {
+#player-form-entry, #player-map, #select-season-target {
   float: left;
   margin: auto 10px;
+}
+
+#select-season-target {
+  float: left;
+  margin: 10px 10px;
 }
 
  #player-form-entry {
    background-color: #659966;
  }
- #enter-player > input, option {
-   color: #000;
- }
+ // #enter-player > input, option {
+ //   color: #000;
+ // }
 
 #dynamic-field-map {
   float: left;
@@ -50,6 +51,12 @@
   border-width: 2px;
   border-color: #f4c542;
   background-color: #659966;
+}
+
+#my-rosters {
+  float: left;
+  margin: 10px 10px;
+  width: 30%;
 }
 
 #display-roster {

@@ -30,8 +30,8 @@ margin: auto;
   text-align: center;
 }
 
-input {
-  color: #000;
+input, select {
+  color: #888888;
 }
 
 .auth-forms {
@@ -81,10 +81,6 @@ text-align: center;
   background-color: #496d91;
   opacity: 0.25;
 }
-#coaches-instructions > h3, p {
-  color: #496d91;
-  opacity: 1;
-}
 
 .individ-tools {
   float: left;
@@ -118,4 +114,8 @@ legend {
 }
 .program-radio {
   margin: 5px, 5px;
+}
+
+.important_message  {
+  color: #fff
 }

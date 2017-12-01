@@ -40,6 +40,8 @@ const signOutSuccess = function () {
   $('.batting-roster').hide()
   $('.view-roster-panel').hide()
   $('#view-season').hide()
+  $('#season-display-target').empty()
+  $('#select-season-target').empty()
   $('.welcome-box').show()
   $(':input', '#sign-in').val('')
   $(':input', '#enter-player').val('')

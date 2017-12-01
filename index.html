@@ -109,22 +109,18 @@
         <!-- begin batting roster panel -->
         <div class="batting-roster">
           <div id="roster-entry">
-            <div id="player-map"><img src="https://i.imgur.com/qottp7T.png" alt="Field Map height="350" width="350""></div>
+            <div id="select-season">
+
+              <div id="select-season-target">
+              </div>
+            </div>
             <div id="player-form-entry">
             <form id="enter-player">
               <fieldset>
                 <legend>Enter Player Information</legend>
                 <p class="important_message">All fields except Notes and Batting Average are required.</p>
-                <!-- <label for="season">Season:</label>
-                  <select id="season" name="season[year]" >
-                      <option value="" disabled="disabled" selected="selected">Season</option>
-                      <option value="2018">2018</option>
-                      <option value="2019">2019</option>
-                      <option value="2020">2020</option>
-                      <option value="2021">2021</option>
-                      <option value="2022">2022</option>
-                      <option value="2023">2023</option>
-                  </select> -->
+                  <br>
+                  <label for="season">Selected Season:</label><input id="season" class="season-input" type="text" name="season[year]" placeholder="Selected Season" required>
                   <br>
                   <label for="team">Team:</label> <select id="team" name="player[team]" required>
                     <option value="" disabled="disabled" selected="selected">Team</option>
@@ -133,7 +129,6 @@
                     <option value="Astros">Dodgers</option>
                     <option value="Dodgers">Red Sox</option>
                 </select>
-
                   <br>
                   <label for="fname">First Name:</label> <input id="fname" type="text" name="player[first_name]" placeholder="First Name" required>
                   <br>
@@ -183,7 +178,7 @@
                       <option value="14">14</option>
                   </select>
                   <br>
-                  <label for="notes">Notes:</label> <textarea id="notes" rows="6" cols="40" name="player[notes]" form="enter-player"></textarea>
+                  <label for="notes">Notes:</label> <textarea id="notes" rows="2" cols="40" name="player[notes]" form="enter-player"></textarea>
                   <br>
                   <label for="bavg">Batting Average:</label><input id="bavg" class="score" type="text" name="player[batting_avg]" required>
                   <br>
@@ -192,6 +187,8 @@
             </form>
             <button type="click" id="view-rosters" name="view-rosters" value="View Rosters">View My Rosters</button>
           </div>
+          <!-- <div id="player-map"><img src="https://i.imgur.com/qottp7T.png" alt="Field Map height="300" width="300"">
+          </div> -->
           </div>
         </div>
         <!-- end batting roster panel -->
@@ -206,6 +203,7 @@
             </div>
             <div id="my-rosters">
               <form id="find-roster">
+                <legend>Select a Season and Team</legend>
                 <label for="season">Season:</label>
                   <select id="season" name="player[season]" required>
                       <option value="" disabled="disabled" selected="selected">Season</option>
@@ -283,118 +281,8 @@
         </div>
       </div>
         <!-- end enter season panel -->
-        <!-- begin view seasons panel -->
-          <!-- <div class="view-seasons-panel">
-            <div id="view-season">
-            some text
-            </div>
-          </div> -->
 
-        <!-- end view seasons panel -->
         <!-- end season panels -->
-          <!-- begins the area where we find a player or enter data -->
-          <div class="enter-data">
-                  <!-- class="enter-data" -->
-                  <form id="enter-player">
-                    <fieldset>
-                      <legend>Enter Player Information</legend>
-                      <p class="important_message">All fields except Program & Notes are required.  The maximum score value is 5.</p>
-                        First Name: <input type="text" name="player[first_name]" placeholder="First Name" required>
-                        <br>
-                        Last Name: <input type="text" name="player[last_name]" placeholder="Last Name" required>
-                        <br>
-                        Age: <input type="text" name="player[age]" placeholder="Age" required>
-                        <br>
-                        Grade: <input type="text" name="player[grade]" placeholder="Grade" required>
-                        <br>
-                        <input class="program-radio" type="radio" name="player[program]" value="Single A"> Single A
-                        <input class="program-radio" type="radio" name="player[program]" value="Double A"> Double A
-                        <input class="program-radio" type="radio" name="player[program]" value="Triple A"> Triple A
-                        <input class="program-radio" type="radio" name="player[program]" value="Majors"> Majors
-                        <input class="program-radio" type="radio" name="player[program]" value="SB Farm"> SB Farm
-                        <input class="program-radio" type="radio" name="player[program]" value="SB Juniors"> SB Juniors
-                        <input class="program-radio" type="radio" name="player[program]" value="SB Seniors">
-                        SB Seniors
-                        <br>
-                        Notes: <textarea rows="6" cols="50" name="player[notes]" form="enter-player"></textarea>
-                        <br>
-                        Catching Score:<input class="score" type="text" name="player[catch]" required>
-                        <br>
-                        Throwing Score:<input class="score" type="text" name="player[throw]" required>
-                        <br>
-                        Pitching Score:<input class="score" type="text" name="player[pitch]" required>
-                        <br>
-                        Batting Score: <input class="score" type="text" name="player[bat]" required>
-                        <br>
-                        Athleticism Score: <input class="score" type="text" name="player[athleticism]" required>
-                        <br>
-                        <button type="submit" name="submit" value="Enter New Player">Enter New Player</button>
-                    </fieldset>
-                  </form>
-                  <div id="nav-message2"></div>
-          </div>
-          <!-- ends the area where we enter data -->
-
-          <!-- begins the area where we can view data -->
-      <div class="view-data">
-        <form id="view-allPlayers">
-          <fieldset>
-            <legend>View Player Data</legend>
-          <!-- <input type="radio" name="player[program]" value="program" checked> By Program
-          <br>
-          <input type="radio" name="player[grade]" value="grade"> By Grade
-          <br>
-          <input type="radio" name="player[age]" value="age"> By Age
-          <br> -->
-          <button type="submit" name="submit" value="View Assessment Data">View Assessment Data</button>
-        </fieldset>
-        </form>
-        <button id="view-modify-form" type="click">Modify a Player</button>
-
-
-        <div id="view-PlayersList">
-        </div>
-
-        <div id="modify-a-player">
-          <form id="modify-player">
-            <fieldset>
-              <legend>Enter Player Information</legend>
-                <input type="text" name="player[id]" placeholder="Player ID">
-                <br>
-                <input type="text" name="player[first_name]" placeholder="First Name">
-                <br>
-                <input type="text" name="player[last_name]" placeholder="Last Name">
-                <br>
-                <input type="text" name="player[age]" placeholder="Age">
-                <br>
-                <input type="text" name="player[grade]" placeholder="Grade">
-                <br>
-                <input class="program-radio" type="radio" name="player[program]" value="Single A"> Single A
-                <input class="program-radio" type="radio" name="player[program]" value="Double A"> Double A
-                <input class="program-radio" type="radio" name="player[program]" value="Triple A"> Triple A
-                <input class="program-radio" type="radio" name="player[program]" value="Majors"> Majors
-                <input class="program-radio" type="radio" name="player[program]" value="SB Farm"> SB Farm
-                <input class="program-radio" type="radio" name="player[program]" value="SB Juniors"> SB Juniors
-                <input class="program-radio" type="radio" name="player[program]" value="SB Seniors">
-                SB Seniors
-                <br>
-                <textarea rows="6" cols="50" name="player[notes]" form="enter-player"></textarea>
-                <br>
-                <input type="text" name="player[catch]" placeholder="Catching">
-                <br>
-                <input type="text" name="player[throw]" placeholder="Throwing">
-                <br>
-                <input type="text" name="player[pitch]" placeholder="Pitching">
-                <br>
-                <input type="text" name="player[bat]" placeholder="Batting">
-                <br>
-                <input type="text" name="player[athleticism]" placeholder="Athleticism">
-                <br>
-                <button type="submit" name="submit" value="Modify Player">Modify Player</button>
-            </fieldset>
-          </form>
-        </div>
-      </div>
 
 <!-- <div><script src="https://chatwee-api.com/v2/script/58cb359cbd616dc539fda3e1.js"></script></div> -->
 
