@@ -76,6 +76,16 @@ const enterSeason = function (data) {
   })
 }
 
+const deleteSeason = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/seasons/' + data,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 const viewSeasons = function () {
   console.log('app_api.viewSeasons called:')
   return $.ajax({
@@ -88,6 +98,30 @@ const viewSeasons = function () {
   })
 }
 
+const createPlayerSeason = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/player_seasons',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const updatePlayerSeason = function (data) {
+  console.log('updatePlayerSeason data is:', data)
+  const playerseasonID = data.player_season.id
+  return $.ajax({
+    url: config.apiOrigin + '/player_seasons/' + playerseasonID,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   enterPlayer,
   modifyPlayer,
@@ -95,5 +129,8 @@ module.exports = {
   findPlayers,
   showAllPlayers,
   viewSeasons,
-  enterSeason
+  enterSeason,
+  deleteSeason,
+  createPlayerSeason,
+  updatePlayerSeason
 }

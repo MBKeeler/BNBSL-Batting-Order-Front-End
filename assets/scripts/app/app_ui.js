@@ -5,6 +5,7 @@ const app_api = require('./app_api')
 const showBattingOrderTemplate = require('../templates/helpers/player_list.handlebars')
 const showSeasonTemplate = require('../templates/helpers/season_list.handlebars')
 const selectSeasonTemplate = require('../templates/helpers/season_select.handlebars')
+const selectPlayerTemplate = ('../templates/helpers/player_list.handlebars')
 
 const enterPlayerSuccess = function () {
 //  console.log('data entered successfully')
@@ -59,6 +60,15 @@ const getPlayersSuccess = (data) => {
   const showOrderHtml = showBattingOrderTemplate({ players: data.players })
   $('#display-roster').append(showOrderHtml)
 }
+const listPlayersSuccess = function (data) {
+  console.log('listPlayerSuccess',data)
+  const showOrderHtml = showBattingOrderTemplate({ players: data.players })
+  $('#player-display-target').append(showOrderHtml)
+}
+const listPlayersFailure = (error) => {
+  console.error(error)
+  $('#nav-message').show().html('Players failed to display.  Unspecificed error').fadeOut(8000)
+}
 
 const toggleViewMode = function () {
   $('.view-data').show()
@@ -95,6 +105,7 @@ const returnToTools = function () {
   $('.enter-seasons-panel').hide()
   $('.batting-roster').hide()
   $('.view-seasons-panel').hide()
+  $('.add-player-panel').hide()
   $('#season-display-target').empty()
   $('#select-season-target').empty()
   $('.coaches-landing').show()
@@ -119,11 +130,36 @@ const enterSeasonFailure = function (error) {
   $('#nav-message').show().html('Player failed to save.  Please verify you have filled out all required fields correctly.').fadeOut(8000)
 }
 
+const deleteSeasonSuccess = function () {
+  $('#nav-message').show().html('New Season data entered successfully').fadeOut(8000)
+  $(':input', '#enter-season').val('')
+}
+
+const deleteSeasonFailure = function (error) {
+  console.error('enterSeason failed: ', error)
+  $('#nav-message').show().html('Season failed to save.  Please verify you have filled out all required fields correctly.').fadeOut(8000)
+}
+
 const editSeasons = function () {
   $('.coaches-landing').hide()
   $('.enter-season-panel').show()
   $('#season-panel').show()
 }
+
+const addPlayers = function () {
+  $('.coaches-landing').hide()
+  $('.add-player-panel').show()
+  // $('#season-panel').show()
+}
+
+// const showPlayers = function () {
+//   console.log('showPlayers called:', data)
+//   $('.coaches-landing').hide()
+//   $('.add-player-panel').show()
+//   $('#player-display-target').show()
+//   const showPlayersHTML = selectPlayerTemplate({ players: data.players })
+//   $('#player-display-target').append(showPlayersHTML)
+// }
 
 const viewSeasonsToSelectSuccess = function (data) {
   const showSeasonHtml = selectSeasonTemplate({ seasons: data.seasons })
@@ -178,6 +214,12 @@ module.exports = {
   enterSeasonFailure,
   viewSeasonsToSelectSuccess,
   viewSeasonsToSelectFailure,
-  populateSeason
+  deleteSeasonSuccess,
+  deleteSeasonFailure,
+  populateSeason,
+  addPlayers,
+  // showPlayers,
+  listPlayersSuccess,
+  listPlayersFailure
   // checkFormData
 }

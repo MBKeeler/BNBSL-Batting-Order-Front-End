@@ -1,0 +1,20 @@
+
+{{#each seasons as |season|}}
+
+
+    {{#if season}}
+        {{!-- {{#seasons}} --}}
+        <tr width=40% data-id="{{season.id}}">
+            <td align="center">{{season.id}}</td>
+            <td>{{season.year}}</td>
+            <td>{{season.team}}</td>
+            <td>{{season.program}}</td>
+            <td><button id="selectSeasonBttn" value="{{season.id}}" name='select' type='click'>Select Season</button></td>
+        </tr>
+        {{!-- {{/seasons}} --}}
+
+{{else}}
+    <h4>There are no seasons on record for this user. Return to the Tools aand create a new season<h4>
+{{/if}}
+
+{{/each}}

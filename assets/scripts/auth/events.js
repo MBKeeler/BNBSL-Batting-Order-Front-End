@@ -157,6 +157,15 @@ const onViewRosters = function (event) {
   app_ui.viewRosters()
 }
 
+const onAddPlayerPanel = function (event) {
+  console.log('onAddPlayerPanel called', event)
+  event.preventDefault()
+  app_ui.addPlayers()
+  app_api.showAllPlayers()
+    .then(app_ui.listPlayersSuccess)
+    .catch(app_ui.listPlayersFailure)
+}
+
 const onEditSeasons = function (event) {
   console.log('onEditSeasons called')
   event.preventDefault()
@@ -176,6 +185,7 @@ const onViewSeasons = function (event) {
   console.log('onViewSeasons called', event)
   event.preventDefault()
   app_api.viewSeasons()
+  app_api.showPlayers()
     .then(app_ui.viewSeasonsSuccess)
     .catch(app_ui.viewSeasonsFailure)
 }
@@ -195,6 +205,14 @@ const onSelectSeason = (event) => {
   const data = $(event.target).attr('value')
   console.log('data', data)
   app_ui.populateSeason(data)
+}
+
+const onDeleteSeason = (event) => {
+  event.preventDefault()
+  console.log('onDeleteSeason called', event)
+  app_api.deleteSeason(event)
+    .then(app_ui.deleteSeasonSucess)
+    .catch(app_ui.deleteSeasonFailure)
 }
 
 const addHandlers = function () {
@@ -219,8 +237,10 @@ const addHandlers = function () {
   $('#return-to-tools').on('click', onReturnToTools)
   $('#view-rosters').on('click', onViewRosters)
   $('#seasons').on('submit', onEditSeasons)
+  $('#players').on('submit', onAddPlayerPanel)
   $('#enter-season').on('submit', onEnterSeason)
   $('#view-seasons').on('click', onViewSeasons)
+  $('#season-display-target').on('click', '#deleteSeasonBttn', onDeleteSeason)
 }
 
 module.exports = {

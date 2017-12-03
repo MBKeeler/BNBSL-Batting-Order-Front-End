@@ -8,7 +8,7 @@
 }
 
 // Set initial display states
-.navigation-bar, .enter-data, .view-data, #change-password, #modify-a-player, .navbar-default, ,.coaches-landing, .batting-roster, .view-roster-panel, .view-seasons-panel, .enter-season-panel {
+.navigation-bar, .enter-data, .view-data, #change-password, #modify-a-player, .navbar-default, ,.coaches-landing, .batting-roster, .view-roster-panel, .view-seasons-panel, .enter-season-panel, .add-player-panel {
   display: none;
 }
 
@@ -53,7 +53,7 @@ input, select {
 }
 
 // basic panel definition
-.enter-data, .view-data, .coaches-landing, .batting-roster, .view-roster-panel, .view-seasons-panel, .enter-season-panel  {
+.enter-data, .view-data, .coaches-landing, .batting-roster, .view-roster-panel, .view-seasons-panel, .enter-season-panel, .add-player-panel {
   margin: 25px auto;
   max-width: 900px;
   border-style: solid;
@@ -72,19 +72,10 @@ margin: 10px 10px;
 text-align: center;
 }
 
-#coaches-instructions {
-  float: right;
-  width: 30%;
-  min-height: 100%;
-  margin-left: 10px;
-  padding: 5px;
-  background-color: #496d91;
-  opacity: 0.25;
-}
 
 .individ-tools {
   float: left;
-  margin: 30px;
+  margin: 20px;
   // box-shadow: 10px 10px 5px #888888;
 }
 
@@ -110,6 +101,7 @@ form {
 }
 
 legend {
+width: 45%;
   color: #fff;
 }
 .program-radio {
@@ -118,4 +110,46 @@ legend {
 
 .important_message  {
   color: #fff
+}
+table {
+  width: 40%;
+   background-color: #659966;
+}
+
+th, td, tr {
+  width: 40%;
+  background-color: #659966
+}
+tr:nth-child(even) {
+  width: 40%;
+  background-color: #f2f2f2;}
+// tr:nth-child(odd) {
+//   width: 45%;
+//   background-color: #f2f2f2;}
+.chatwee-div {
+  margin: auto;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }

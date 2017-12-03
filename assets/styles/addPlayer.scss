@@ -1,24 +1,23 @@
-#create-season-tool {
-  background-image: url("https://i.imgur.com/ZxXglH2.png?2") ;
-background-size: contain;
+#add-player-tool {
+  background-image: url("https://i.imgur.com/xT0yRa8.png?2");
+  background-size: contain;
   width: 125px;
   height: 125px;
   background-repeat: no-repeat;
   box-shadow: 10px 10px 5px #888888;
 }
 
-#season-panel, #view-season {
+#add-player {
   min-height: 500px;
   margin: auto;
+  float: left;
   background-color: #659966;
   border-style: solid;
   border-color: blue;
   border-width: 1px;
 }
 
-#season-display-target, #enter-season {
-float: left;
-}
-#season-display-target {
+#player-display-target {
+  float: left;
   margin: 5px 20px;
 }

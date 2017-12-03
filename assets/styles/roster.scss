@@ -9,26 +9,21 @@
 
 #batting-roster-tool {
   background-image: url("https://i.imgur.com/3cdbMj8.png?1") ;
-  width: 200px;
-  height: 200px;
+  background-size: contain;
+  width: 125px;
+  height: 125px;
   background-repeat: no-repeat;
   box-shadow: 10px 10px 5px #888888;
 }
 
-#player-eval-tool {
-  background-image: url("https://i.imgur.com/K2EjpOg.png?1") ;
-  width: 200px;
-  height: 200px;
-  background-repeat: no-repeat;
-  box-shadow: 10px 10px 5px #888888;
-}
+
 
 #player-form-entry, #player-map, #select-season-target {
   float: left;
   margin: auto 10px;
 }
 
-#select-season-target {
+#select-season-target, #select-player-target {
   float: left;
   margin: 10px 10px;
 }
