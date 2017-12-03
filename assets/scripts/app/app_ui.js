@@ -6,6 +6,7 @@ const showBattingOrderTemplate = require('../templates/helpers/player_list.handl
 const showSeasonTemplate = require('../templates/helpers/season_list.handlebars')
 const selectSeasonTemplate = require('../templates/helpers/season_select.handlebars')
 const selectPlayerTemplate = ('../templates/helpers/player_list.handlebars')
+const i
 
 const enterPlayerSuccess = function () {
 //  console.log('data entered successfully')
@@ -55,8 +56,6 @@ const deletePlayerFailure = function (error) {
 
 const getPlayersSuccess = (data) => {
   // console.log(data)
-  $('#view-PlayersList').show()
-  $('#view-PlayersList').empty()
   const showOrderHtml = showBattingOrderTemplate({ players: data.players })
   $('#display-roster').append(showOrderHtml)
 }
