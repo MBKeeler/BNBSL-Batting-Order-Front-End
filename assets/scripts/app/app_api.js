@@ -52,7 +52,7 @@ const findPlayers = function (data) {
 }
 
 const showAllPlayers = function () {
-//  console.log('showAllPlayers called')
+ console.log('showAllPlayers called')
   return $.ajax({
     url: config.apiOrigin + '/players',
     method: 'GET',

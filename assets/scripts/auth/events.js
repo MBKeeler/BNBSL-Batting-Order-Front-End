@@ -45,8 +45,8 @@ const onChangePassword = function (event) {
   event.preventDefault()
   // console.log('change password ran!')
   const data = getFormFields(this)
-  // console.log(data)
-  // console.log(data.passwords.old, data.passwords.new)
+  console.log(data)
+  console.log(data.passwords.old, data.passwords.new)
   if (data.passwords.old === data.passwords.new) {
     ui.notUniquePw()
   } else {
@@ -140,6 +140,9 @@ const onOpenBattingRoster = function (event) {
   console.log('onOpenBattingRoster called')
   event.preventDefault()
   app_ui.openBattingRoster()
+  app_api.showAllPlayers()
+    .then(app_ui.getPlayersSuccess)
+    .catch(app_ui.getPlayersFailure)
   app_api.viewSeasons()
     .then(app_ui.viewSeasonsToSelectSuccess)
     .catch(app_ui.viewSeasonsToSelectFailure)
@@ -185,7 +188,7 @@ const onViewSeasons = function (event) {
   console.log('onViewSeasons called', event)
   event.preventDefault()
   app_api.viewSeasons()
-  app_api.showPlayers()
+  // app_api.showPlayers()
     .then(app_ui.viewSeasonsSuccess)
     .catch(app_ui.viewSeasonsFailure)
 }
@@ -196,7 +199,7 @@ const onGetPlayers = (event) => {
   console.log('onGetplayers event:', event)
   app_api.findPlayers(event)
     .then(app_ui.getPlayersSuccess)
-    .catch(app_ui.showAllPlayersFailure)
+    .catch(app_ui.getPlayersFailure)
 }
 
 const onSelectSeason = (event) => {
@@ -213,6 +216,14 @@ const onDeleteSeason = (event) => {
   app_api.deleteSeason(event)
     .then(app_ui.deleteSeasonSucess)
     .catch(app_ui.deleteSeasonFailure)
+}
+
+const onAssignBattingList = (event) => {
+  event.preventDefault()
+  console.log('onAssignBattingList called', event)
+  app_api.createPlayerSeason(event)
+    .then(app_ui.createPlayerSeasonSuccess)
+    .catch(app_ui.createPlayerSeasonFailure)
 }
 
 const addHandlers = function () {
@@ -241,6 +252,7 @@ const addHandlers = function () {
   $('#enter-season').on('submit', onEnterSeason)
   $('#view-seasons').on('click', onViewSeasons)
   $('#season-display-target').on('click', '#deleteSeasonBttn', onDeleteSeason)
+  $('.batting-roster').on('submit', onAssignBattingList)
 }
 
 module.exports = {

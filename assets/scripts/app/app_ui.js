@@ -5,8 +5,8 @@ const app_api = require('./app_api')
 const showBattingOrderTemplate = require('../templates/helpers/player_list.handlebars')
 const showSeasonTemplate = require('../templates/helpers/season_list.handlebars')
 const selectSeasonTemplate = require('../templates/helpers/season_select.handlebars')
-const selectPlayerTemplate = ('../templates/helpers/player_list.handlebars')
-const i
+const selectPlayerTemplate = ('../templates/helpers/player_list_select.handlebars')
+const addPlayerTemplate = ('../templates/helpers/player_list_select.handlebars')
 
 const enterPlayerSuccess = function () {
 //  console.log('data entered successfully')
@@ -54,11 +54,17 @@ const deletePlayerFailure = function (error) {
   $('#nav-message').show().html('Player was not deleted. Verify you are an owner of this player before trying to delete.').fadeOut(8000)
 }
 
-const getPlayersSuccess = (data) => {
-  // console.log(data)
-  const showOrderHtml = showBattingOrderTemplate({ players: data.players })
-  $('#display-roster').append(showOrderHtml)
+const getPlayersSuccess = function (data) {
+  console.log('getPlayerSuccess',data)
+  const showPlayerHtml = selectPlayerTemplate({ players: data.players })
+  $('#select-player-target').append(showPlayerHtml)
 }
+const getPlayersFailure = function (error) {
+  // console.log(data)
+  console.error(error)
+  $('#nav-message').show().html('Players failed to display.  Unspecificed error').fadeOut(8000)
+}
+
 const listPlayersSuccess = function (data) {
   console.log('listPlayerSuccess',data)
   const showOrderHtml = showBattingOrderTemplate({ players: data.players })
@@ -188,6 +194,13 @@ const populateSeason = function (data) {
   $('.season-input').val(data)
 }
 
+const createPlayerSeasonSuccess = function (data) {
+  console.log('createPlayerSeasonSuccess data is', data)
+}
+const createPlayerSeasonFailure = function (error) {
+  console.error(error)
+}
+
 module.exports = {
   enterPlayerSuccess,
   enterPlayerFailure,
@@ -200,6 +213,7 @@ module.exports = {
   toggleEntryMode,
   toggleViewMode,
   getPlayersSuccess,
+  getPlayersFailure,
   toggleModForm,
   revealChngPwForm,
   hideChngePwForm,
@@ -219,6 +233,8 @@ module.exports = {
   addPlayers,
   // showPlayers,
   listPlayersSuccess,
-  listPlayersFailure
+  listPlayersFailure,
+  createPlayerSeasonSuccess,
+  createPlayerSeasonFailure
   // checkFormData
 }
