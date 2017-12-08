@@ -11,6 +11,7 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
+    z-index: -1;
 }
 
 button:hover {
@@ -32,7 +33,7 @@ button:hover {
 #change-password {
 position: relative;
   width: 300px;
-  height: 215px;
+  height: 250px;
   z-index: 500;
   margin: 40px auto;
   padding: 5px;
