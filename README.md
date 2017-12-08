@@ -37,3 +37,63 @@ CSS
 Github Pages (hosting front-end)
 
 ##User Stories:
+
+MVP Stories:
+
+- As a coach, I want to be able to login to the application.
+
+- As a coach I want to be able to create a player and assign that player to a team.
+
+- As a coach I want to be able to assign a player to a field position.
+
+- As a coach I want to be able to assign a player to a position on the batting order.
+
+- As a coach I want to be able to edit my roster and field positions.
+
+- As a coach I want to be able to view my team batting roster.
+
+- As a coach I want to be able to view a graphical representation of player position assignments in the context of a baseball/softball diamond.
+
+- As a coach I want to be able to view the application on my smartphone, tablet, laptop, or desktop without loss of functionality.
+
+- As a coach I want to be able to download a csv file containing my team batting roster with player assignment and position.
+
+- As a coach I want the #4 batting position to be visually highlighted as the “clean-up hitter”.
+
+- As a coach I only want to see my teams, but as an administrator I want to see all teams.
+
+
+Secondary Priority Stories:
+
+- As a coach I want to be able to email or text the csv (or pdf if available) to another coach
+
+- As a coach I want to be able to print a PDF file with my team’s batting roster with batting assignments
+
+- As a coach I want the ability to record batting average as an optional player statistic
+
+- As a coach I want to be able to view typical batting position name and characteristics. For example:
+
+- Lead off hitter – high speed, base stealing capability, plate discipline
+
+      Contact hitter –
+
+      Three hole hitter – high batting average, moderate speed
+
+      Cleanup hitter – highest batting average, batting power, high home run potential, moderate speed
+
+      RBI hitters (5th & 6th)
+
+      Defensive batters (7th & 8th)
+
+      DH or if no DH then pitcher
+
+- As a coach I want to be able to use Chatwee for messaging with my league peers
+
+- As an administrator I want to be able to create seasons for each program.
+
+
+Low Priority Stories for future versions:
+
+- As a coach I want integration with my player evaluation system so that raw talent scores such as batting, fielding, and speed can be factored into the application.
+
+- As a coach I want the application to produce a batting roster automatically using some of the raw scores for batting, fielding, and speed.
