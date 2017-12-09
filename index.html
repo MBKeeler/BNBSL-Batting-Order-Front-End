@@ -37,7 +37,7 @@
                       </form>
                       <!-- <button id="cancel" type="submit" name="cancel">Cancel</button> -->
                     </div>
-                    <div id="navbutton"></div><button type="click" id="return-to-tools"name="return-to-tools" value="Return to Coaches Tools">Return To Tools</button>
+                    <div id="navbutton"><button type="click" id="return-to-tools"name="return-to-tools" value="Return to Coaches Tools">Return To Tools</button></div>
 
                   <div id="navbar-center">
                       <div id="nav-message"></div>
@@ -248,9 +248,10 @@
         <!-- begin enter season panel -->
         <div class="enter-season-panel">
           <div id="season-panel">
+            <div id="enter-panel">
         <form id="enter-season">
           <fieldset>
-            <legend>Enter Season Information</legend>
+            <legend>Enter Season</legend>
             <p class="important_message">All fields required.</p>
             <label for="season">Season:</label>
               <select id="season" name="season[year]" required>
@@ -287,6 +288,7 @@
               <button type="submit" name="submit" value="Enter New Player">Enter New Season</button>
           </fieldset>
         </form>
+      </div>
             <div id="season-display-area">
             <div id="season-display-target">
               <lengend><span style="font-size: 150%">Your Existing Seasons</span></legend>
