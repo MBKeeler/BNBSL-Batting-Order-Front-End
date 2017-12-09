@@ -1,0 +1,15 @@
+<legend>Select a Season</legend>
+{{#each seasons as |season|}}
+
+    {{#if season}}
+
+    <option value="" disabled="disabled" selected="selected">Seasons</option>
+    <option value={{season.id}}>{{season.year}} - {{season.program}} - {{season.team}} </option>
+
+    {{else}}
+    <option value="" disabled="disabled" selected="selected">Seasons</option>
+    <option value=""> There are no seasons createded  </option>
+
+    {{/if}}
+
+{{/each}}
