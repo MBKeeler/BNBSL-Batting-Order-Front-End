@@ -24,9 +24,9 @@ const onModifyPlayer = function (event) {
 
 const onDeletePlayer = function (event) {
   // console.log('onDeletePlayer called')
-  const data = getFormFields(this)
+  // const data = getFormFields(this)
   event.preventDefault()
-  //  console.log('sign-up', data)
+  const data = $(event.target).attr('value')
   api.deletePlayer(data)
     .then(ui.deletePlayerSuccess)
     .catch(ui.deletePlayerSuccess)

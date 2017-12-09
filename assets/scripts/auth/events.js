@@ -213,7 +213,8 @@ const onSelectSeason = (event) => {
 const onDeleteSeason = (event) => {
   event.preventDefault()
   console.log('onDeleteSeason called', event)
-  app_api.deleteSeason(event)
+  const data = $(event.target).attr('value')
+  app_api.deleteSeason(data)
     .then(app_ui.deleteSeasonSucess)
     .catch(app_ui.deleteSeasonFailure)
 }
@@ -234,9 +235,9 @@ const addHandlers = function () {
   $('#enter-player').on('submit', onEnterPlayer)
   // $('#modify-a-player').on('submit', onModifyPlayer)
   $('#modify-player').on('submit', onModifyPlayer)
-  $('#view-PlayersList').on('click', '#deleteBttn', onDeletePlayer)
+  $('#player-display-target').on('click', '#deletePlayerBttn', onDeletePlayer)
   $('#select-season-target').on('click', '#selectSeasonBttn', onSelectSeason)
-  // $('#view-PlayersList').on('click', '#deleteBttn', onDeleteSeason)
+  // $('#view-PlayersList').on('click', '#deletePlayerBttn', onDeleteSeason)
   $('#find-roster').on('submit', onFindPlayers)
   $('#view-allPlayers').on('submit', onGetPlayers)
   $('#view-mode').on('click', onToggleViewMode)
