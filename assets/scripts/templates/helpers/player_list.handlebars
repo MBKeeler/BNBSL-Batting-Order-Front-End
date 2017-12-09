@@ -3,14 +3,10 @@
   <!-- -->
 
 
-  <table style="width:75%">
+  <table style="width:50%">
     <thead>
-        <th>Player ID</th>
         <th>First Name</th>
         <th>Last Name </th>
-        <th>Team</th>
-        <th>Program</th>
-        <th>Notes</th>
         <th>Position</th>
         <th>Batting Position</th>
         <th>Batting Avg</th>
@@ -18,12 +14,8 @@
     {{#if player}}
     <tbody>
         <tr bgcolor="#cd9966" data-id="{{player.id}}">
-            <td>{{player.id}}</td>
             <td>{{player.first_name}}</td>
             <td>{{player.last_name}}</td>
-            <td>{{player.team}}</td>
-            <td>{{player.program}}</td>
-            <td>{{player.notes}}</td>
             <td>{{player.position}}</td>
             <td>{{player.batting_position}}</td>
             <td>{{player.batting_avg}}</td>
