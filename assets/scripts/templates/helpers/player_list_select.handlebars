@@ -5,8 +5,8 @@
 
   <table style="width:75%">
     <thead>
-        <th align="left">First Name</th>
-        <th align="left">Last Name </th>
+        <th width="90" align="left">First Name</th>
+        <th width="120" align="left">Last Name </th>
         <th align="left">Position</th>
         <th align="left">Batting Position</th>
         <th align="left">Batting Avg</th>
@@ -14,6 +14,7 @@
     {{#if player}}
     <tbody>
         {{!-- <tr bgcolor="#cd9966" data-id="{{player.id}}"> --}}
+        <tr>
             <td align="left">{{player.first_name}}</td>
             <td align="left">{{player.last_name}}</td>
             <td align="left">{{player.position}}</td>
