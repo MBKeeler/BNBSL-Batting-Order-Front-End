@@ -5,8 +5,8 @@ const app_api = require('./app_api')
 const showBattingOrderTemplate = require('../templates/helpers/player_list.handlebars')
 const showSeasonTemplate = require('../templates/helpers/season_list.handlebars')
 const selectSeasonTemplate = require('../templates/helpers/season_select.handlebars')
-const selectPlayerTemplate = ('../templates/helpers/player_list_select.handlebars')
-const addPlayerTemplate = ('../templates/helpers/player_list_select.handlebars')
+const selectPlayerTemplate = require('../templates/helpers/player_list_select.handlebars')
+// const addPlayerTemplate = require ('../templates/helpers/player_list_select.handlebars')
 
 const enterPlayerSuccess = function () {
 //  console.log('data entered successfully')

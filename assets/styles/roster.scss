@@ -25,9 +25,12 @@
 
 #select-season-target, #select-player-target {
   float: left;
-  margin: 10px 10px;
+  margin: 10px;
 }
 
+#select-season-target {
+  max-width: 35%;
+}
 
 #dynamic-field-map {
   float: left;
