@@ -7,6 +7,12 @@
   border-width: 1px;
 }
 
+#create-roster-panel, #view-roster-form-panel {
+  float: left;
+  max-width: 35%;
+  margin: auto;
+}
+
 #batting-roster-tool {
   background-image: url("https://i.imgur.com/3cdbMj8.png?1") ;
   background-size: contain;
@@ -23,10 +29,10 @@
   margin: auto 10px;
 }
 
-#select-season-target, #select-player-target {
-  float: left;
-  margin: 10px;
-}
+// #select-season-target, #select-player-target {
+//   float: left;
+//   margin: 10px;
+// }
 
 #select-season-target {
   max-width: 35%;

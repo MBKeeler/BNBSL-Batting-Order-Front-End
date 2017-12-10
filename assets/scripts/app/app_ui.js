@@ -1,11 +1,13 @@
 'use strict'
 // const config = require('../config')
 // const store = require('../store')
-const app_api = require('./app_api')
+//const app_api = require('./app_api')
+const appEvents = require('./app_events')
 const showBattingOrderTemplate = require('../templates/helpers/player_list.handlebars')
 const showSeasonTemplate = require('../templates/helpers/season_list.handlebars')
-const selectSeasonTemplate = require('../templates/helpers/season_select.handlebars')
-const selectPlayerTemplate = require('../templates/helpers/player_list_select.handlebars')
+// const selectSeasonTemplate = require('../templates/helpers/season_select.handlebars')
+const selectorSeasonTemplate = require('../templates/helpers/season_selector.handlebars')
+const selectorPlayerTemplate = require('../templates/helpers/player_list_selector.handlebars')
 // const addPlayerTemplate = require ('../templates/helpers/player_list_select.handlebars')
 
 const enterPlayerSuccess = function () {
@@ -21,14 +23,16 @@ const enterPlayerFailure = function (error) {
   $('#nav-message').show().html('Player failed to save.  Please verify you have filled out all required fields correctly.').fadeOut(8000)
 }
 
-const modifyPlayerSuccess = function () {
+const updatePlayerSuccess = function () {
 //  console.log('modifyPlayerSuccess called')
-  $('#view-PlayersList').empty()
   $('#nav-message').show().html('Player data updated successfully').fadeOut(8000)
-  $(':input', '#modify-player').val('')
+  $(':input', '#update-player').val('')
+  // $('#update-player').collapse()
+  $('.card-body').collapse('hide')
+  // then(appEvents.onAddPlayerPanel)
 }
 
-const modifyPlayerFailure = function (error) {
+const updatePlayerFailure = function (error) {
   console.log('modifyPlayerFailure called', error)
   $('#nav-message').show().html('Updates to this player were note saved. Verify all fields in the form are filled in correctly and that you are an owner of this player.').fadeOut(8000)
 }
@@ -55,8 +59,8 @@ const deletePlayerFailure = function (error) {
 }
 
 const getPlayersSuccess = function (data) {
-  console.log('getPlayerSuccess',data)
-  const showPlayerHtml = selectPlayerTemplate({ players: data.players })
+  console.log('getPlayerSuccess', data)
+  const showPlayerHtml = selectorPlayerTemplate({ players: data.players })
   $('#select-player-target').append(showPlayerHtml)
 }
 const getPlayersFailure = function (error) {
@@ -66,10 +70,12 @@ const getPlayersFailure = function (error) {
 }
 
 const listPlayersSuccess = function (data) {
-  console.log('listPlayerSuccess',data)
+  console.log('listPlayerSuccess called')
+  $('#player-display-target').empty()
   const showOrderHtml = showBattingOrderTemplate({ players: data.players })
   $('#player-display-target').append(showOrderHtml)
 }
+
 const listPlayersFailure = (error) => {
   console.error(error)
   $('#nav-message').show().html('Players failed to display.  Unspecificed error').fadeOut(8000)
@@ -113,6 +119,7 @@ const returnToTools = function () {
   $('.add-player-panel').hide()
   $('#season-display-target').empty()
   $('#select-season-target').empty()
+  $('#player-display-target').empty()
   $('.coaches-landing').show()
 }
 
@@ -167,7 +174,7 @@ const addPlayers = function () {
 // }
 
 const viewSeasonsToSelectSuccess = function (data) {
-  const showSeasonHtml = selectSeasonTemplate({ seasons: data.seasons })
+  const showSeasonHtml = selectorSeasonTemplate({ seasons: data.seasons })
   $('#select-season-target').append(showSeasonHtml)
   $('#nav-message').show().html('Seasons available for current user').fadeOut(8000)
 }
@@ -220,8 +227,8 @@ const createPlayerSeasonFailure = function (error) {
 module.exports = {
   enterPlayerSuccess,
   enterPlayerFailure,
-  modifyPlayerSuccess,
-  modifyPlayerFailure,
+  updatePlayerSuccess,
+  updatePlayerFailure,
   findPlayersSuccess,
   findPlayersFailure,
   deletePlayerSuccess,

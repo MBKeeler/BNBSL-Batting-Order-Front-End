@@ -67,13 +67,13 @@ const onEnterPlayer = function (event) {
     .catch(app_ui.enterPlayerFailure)
 }
 
-const onModifyPlayer = function (event) {
-  console.log('onModifyPlayer called')
+const onUpdatePlayer = function (event) {
+  console.log('onUpdatePlayer called')
   const data = getFormFields(this)
   event.preventDefault()
   app_api.modifyPlayer(data)
-    .then(app_ui.modifyPlayerSuccess)
-    .catch(app_ui.modifyPlayerFailure)
+    .then(app_ui.updatePlayerSuccess)
+    .catch(app_ui.upatePlayerFailure)
 }
 
 const onSelectPlayer = (event) => {
@@ -81,6 +81,7 @@ const onSelectPlayer = (event) => {
   console.log('onSelectPlayer called', event)
   const data = $(event.target).attr('value')
   console.log('onSelectPlayer data:', data)
+  $('.card-body').collapse('show')
   app_ui.populatePlayer(data)
 }
 
@@ -240,10 +241,10 @@ const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
-  $('#enter-player').on('submit', onEnterPlayer)
+  $('#enter-player').on('submit', onEnterPlayer).on('submit', onAddPlayerPanel)
   // $('#modify-a-player').on('submit', onModifyPlayer)
-  $('#modify-player').on('submit', onModifyPlayer)
-  $('#player-display-target').on('click', '#deletePlayerBttn', onDeletePlayer)
+  $('#update-player').on('submit', onUpdatePlayer).on('submit', onAddPlayerPanel)
+  $('#player-display-target').on('click', '#deletePlayerBttn', onDeletePlayer).on('click', onAddPlayerPanel)
   $('#select-season-target').on('click', '#selectSeasonBttn', onSelectSeason)
   $('#player-display-target').on('click', '#updatePlayerBttn', onSelectPlayer)
   $('#find-roster').on('submit', onFindPlayers)

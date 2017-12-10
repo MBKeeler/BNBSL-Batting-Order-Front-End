@@ -1,10 +1,10 @@
+{{#each players as |player|}}
 
-{{#each seasons as |season|}}
-
-    {{#if season}}
-    <option value={{season.id}}>{{season.year}} - {{season.program}} - {{season.team}} </option>
+    {{#if player}}
+    <option value={{player.id}}>{{player.first_name}} {{player.last_name}}</option>
     {{else}}
     <option value="" disabled="disabled" selected="selected">Seasons</option>
     <option value=""> There are no seasons created  </option>
-    {{/if}}
+{{/if}}
+
 {{/each}}
