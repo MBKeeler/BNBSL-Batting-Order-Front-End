@@ -19,7 +19,8 @@
             <td>{{player.position}}</td>
             <td>{{player.batting_position}}</td>
             <td>{{player.batting_avg}}</td>
-            <td><button id="deletePlayerBttn" value="{{player.id}}" name='delete' type='click'>Delete </button></td>
+            <td><button id="deletePlayerBttn" value="{{player.id}}" name='delete' type='click'>Delete</button></td>
+            <td><button id="updatePlayerBttn" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#update-form-panel" aria-expanded="false" aria-controls="update-form-panel" value="{{player.id}},{{player.first_name}},{{player.last_name}},{{player.position}},{{player.batting_position}},{{player.batting_avg}}" name='update' type='click'>Update</button></td>
         </tr>
   </table>
 {{else}}

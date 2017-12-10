@@ -194,6 +194,22 @@ const populateSeason = function (data) {
   $('.season-input').val(data)
 }
 
+const populatePlayer = function (data) {
+  const playerData = data.split(',')
+  const playerID = playerData[0]
+  const firstName = playerData[1]
+  const lastName = playerData[2]
+  const position = playerData[3]
+  const bposition = playerData[4]
+  const bavg = playerData[5]
+  $('#update-playerId').val(playerID)
+  $('#update-fname').val(firstName)
+  $('#update-lname').val(lastName)
+  $('#update-position').val(position)
+  $('#update-bposition').val(bposition)
+  $('#update-bavg').val(bavg)
+}
+
 const createPlayerSeasonSuccess = function (data) {
   console.log('createPlayerSeasonSuccess data is', data)
 }
@@ -231,7 +247,7 @@ module.exports = {
   deleteSeasonFailure,
   populateSeason,
   addPlayers,
-  // showPlayers,
+  populatePlayer,
   listPlayersSuccess,
   listPlayersFailure,
   createPlayerSeasonSuccess,

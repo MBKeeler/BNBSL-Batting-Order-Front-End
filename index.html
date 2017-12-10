@@ -116,31 +116,10 @@
                   <legend>Enter Player Information</legend>
                   <p class="important_message">All fields except Notes and Batting Average are required.</p>
                   <br>
-                  <!-- <label for="season">Selected Season:</label><input id="season" class="season-input" type="text" name="season[year]" placeholder="Selected Season" required>
-                  <br>
-                  <label for="team">Team:</label> <select id="team" name="player[team]" required>
-                    <option value="" disabled="disabled" selected="selected">Team</option>
-                    <option value="Astros">Astros</option>
-                    <option value="Dodgers">Diamond Backs</option>
-                    <option value="Astros">Dodgers</option>
-                    <option value="Dodgers">Red Sox</option>
-                    </select>
-                      <br> -->
                       <label for="fname">First Name:</label> <input id="fname" type="text" name="player[first_name]" placeholder="First Name" required>
                       <br>
                       <label for="lname">Last Name:</label> <input id="lname" type="text" name="player[last_name]" placeholder="Last Name" required>
                       <br>
-                      <!-- <lable for="program">Select a Program:</label>
-                      <select id="program" name="player[program]" required>
-                      <option value="" disabled="disabled" selected="selected">Program</option>
-                      <option value="Single A">Single A</option>
-                      <option value="Double A">Double A</option>
-                      <option value="Triple A">Triple A</option>
-                      <option value="Softball Farm">Softball Farm</option>
-                      <option value="Softball Juniors">Softball Juniors</option>
-                      <option value="Softball Seniors">Softball Seniors</option>
-                      </select>
-                      <br> -->
                       <label for="position">Select a Player Position:</label>
                       <select id="position" name="player[position]" required>
                       <option value="" disabled="disabled" selected="selected">Position</option>
@@ -174,19 +153,71 @@
                       <option value="14">14</option>
                   </select>
                   <br>
-                  <!-- <label for="notes">Notes:</label> <textarea id="notes" rows="2" cols="40" name="player[notes]" form="enter-player"></textarea>
-                  <br> -->
-                  <label for="bavg">Batting Average: </label><input id="bavg" class="score" type="text" name="player[batting_avg]" required>
+                  <label for="bavg">Batting Average: </label><input id="bavg" class="score" type="text" name="player[batting_avg]" maxlength="3" size="3" required>
                   <br>
                   <button type="submit" name="submit" value="Enter New Player">Enter New Player</button>
               </fieldset>
             </form>
-            <!-- <button type="click" id="view-rosters" name="view-rosters" value="View Rosters">View My Rosters</button> -->
+            <!-- begin update player form -->
+            <div id="update-form-panel" class="collapse">
+              <form id="update-player" class="card card-body">
+                <fieldset>
+                  <legend>Update Player</legend>
+                  <br>
+                      <label for="playerId">Player ID:</label> <input id="update-playerId" type="text" name="player[id]" placeholder="ID" maxlength="4" size="4" readonly>
+                      <br>
+                      <label for="fname">First Name:</label> <input id="update-fname" type="text" name="player[first_name]" placeholder="First Name" required>
+                      <br>
+                      <label for="lname">Last Name:</label> <input id="update-lname" type="text" name="player[last_name]" placeholder="Last Name" required>
+                      <br>
+                      <label for="position">Update Player Position:</label>
+                      <select id="update-position" name="player[position]" required>
+                      <option value="" disabled="disabled" selected="selected">Position</option>
+                      <option value="1 - Pitcher">Pitcher</option>
+                      <option value="2 - Catcher">Catcher</option>
+                      <option value="3 - 1st Base">1st Base</option>
+                      <option value="4 - 2nd Base">2nd Base</option>
+                      <option value="5 - 3rd Base">3rd Base</option>
+                      <option value="6 - Short Stop">Short Stop</option>
+                      <option value="7 - Left Field">Left Field</option>
+                      <option value="8 - Center Field">Center Field</option>
+                      <option value="9 - Right Field">Right Field</option>
+                  </select>
+                  <br>
+                  <label for="bposition">Update Position in Batting Order:</label>
+                  <select id="update-bposition" name="player[batting_position]" required>
+                      <option value="" disabled="disabled" selected="selected">Position</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                  </select>
+                  <br>
+                  <label for="bavg">Update Batting Average: </label><input id="update-bavg" class="score" type="text" name="player[batting_avg]" maxlength="3" size="3" required>
+                  <br>
+                  <button type="submit" name="submit" value="Enter New Player">Update Player</button>
+              </fieldset>
+            </form>
+            </div>
+            <!-- end update playerform -->
+            <!-- begin section to display list of players -->
           </div>
-          <div id="player-display-target"></div>
+            <div id="player-display-target"></div>
           </div>
+            <!-- ends section for displaying list of players  -->
         </div>
         <!-- end add player panel -->
+
         <!-- begin batting roster panel -->
         <div class="batting-roster">
           <div id="roster-entry">
