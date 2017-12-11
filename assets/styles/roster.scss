@@ -39,9 +39,10 @@
 }
 
 #dynamic-field-map {
-  float: left;
+  // float: left;
+  margin: auto;
   min-height: 700px;
-  min-width: 550px;
+  width: 550px;
   background-image: url("https://i.imgur.com/qottp7T.png");
   background-repeat: no-repeat;
   background-position: top;
@@ -61,4 +62,40 @@
   margin-top: 500px auto;
   min-height: 100px;
   width: 500px;
+}
+
+#position1 {
+
+}
+#position2 {
+
+}
+#position3 {
+
+}
+#position4 {
+
+}
+#position5 {
+
+}
+#position6 {
+
+}
+#position7 {
+
+}
+#position8 {
+
+}
+#position9 {
+
+}
+
+#batting-order-legend {
+  margin: 495px 10px 10px 10px;
+}
+
+#batting-order-display {
+  margin: 10px;
 }

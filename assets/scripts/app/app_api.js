@@ -122,6 +122,31 @@ const updatePlayerSeason = function (data) {
   })
 }
 
+const getAllPlayerSeasons = function () {
+  console.log('app_api.getAllPlayerSeasons called:')
+  return $.ajax({
+    url: config.apiOrigin + '/player_seasons',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getPlayerSeason = function (data) {
+  console.log('getPlayerSeason called', data)
+  const playerseasonID = data.player_season.id
+  console.log('playerseasonID is', playerseasonID)
+  return $.ajax({
+    url: config.apiOrigin + '/player_seasons/' + playerseasonID,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   enterPlayer,
   modifyPlayer,
@@ -132,5 +157,7 @@ module.exports = {
   enterSeason,
   deleteSeason,
   createPlayerSeason,
-  updatePlayerSeason
+  updatePlayerSeason,
+  getPlayerSeason,
+  getAllPlayerSeasons
 }

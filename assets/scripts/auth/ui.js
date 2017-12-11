@@ -41,6 +41,7 @@ const signOutSuccess = function () {
   $('.view-roster-panel').hide()
   $('#view-season').hide()
   $('#season-panel').hide()
+  $('#add-player').hide()
   $('#season-display-target').empty()
   $('#select-season-target').empty()
   $('.welcome-box').show()

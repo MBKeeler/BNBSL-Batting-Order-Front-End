@@ -8,7 +8,8 @@ const showSeasonTemplate = require('../templates/helpers/season_list.handlebars'
 // const selectSeasonTemplate = require('../templates/helpers/season_select.handlebars')
 const selectorSeasonTemplate = require('../templates/helpers/season_selector.handlebars')
 const selectorPlayerTemplate = require('../templates/helpers/player_list_selector.handlebars')
-// const addPlayerTemplate = require ('../templates/helpers/player_list_select.handlebars')
+const showCurrentBattingOrder = require('../templates/helpers/player_order_list.handlebars')
+const selectorPlayerSeasonTemplate = require('../templates/helpers/playerseason_selector.handlebars')
 
 const enterPlayerSuccess = function () {
 //  console.log('data entered successfully')
@@ -123,9 +124,11 @@ const returnToTools = function () {
   $('.coaches-landing').show()
 }
 
-const viewRosters = function () {
+const viewRosters = function (data) {
   $('.batting-roster').hide()
   $('.view-roster-panel').show()
+  // const showOrderHtml = showCurrentBattingOrder({ players: data.players })
+  // $('#display-order').append(showOrderHtml)
 }
 // begin Season methods
 
@@ -166,11 +169,24 @@ const addPlayers = function () {
 
 const viewSeasonsToSelectSuccess = function (data) {
   const showSeasonHtml = selectorSeasonTemplate({ seasons: data.seasons })
-  $('#select-season-target').append(showSeasonHtml)
+  $('.select-season-target').append(showSeasonHtml)
   $('#nav-message').show().html('Seasons available for current user').fadeOut(8000)
 }
 
 const viewSeasonsToSelectFailure = function (error) {
+  console.error('viewSeasons failed: ', error)
+  // $('#view-PlayersList').empty()
+  $('#nav-message').show().html('Failed to retrieve seasons from the server.').fadeOut(8000)
+}
+
+const viewPlayerSeasonsToSelectSuccess = function (data) {
+  const showSeasonHtml = selectorPlayerSeasonTemplate({ player_seasons: data.player_seasons })
+  $('.select-playerseason-target').empty()
+  $('.select-playerseason-target').append(showSeasonHtml)
+  $('#nav-message').show().html('Seasons available for current user').fadeOut(8000)
+}
+
+const viewPlayerSeasonsToSelectFailure = function (error) {
   console.error('viewSeasons failed: ', error)
   // $('#view-PlayersList').empty()
   $('#nav-message').show().html('Failed to retrieve seasons from the server.').fadeOut(8000)
@@ -213,9 +229,22 @@ const createPlayerSeasonSuccess = function () {
   console.log('createPlayerSeasonSuccess called')
   $('#nav-message').show().html('Player added to season batting order').fadeOut(8000)
 }
+
 const createPlayerSeasonFailure = function (error) {
   console.error(error)
   $('#nav-message').show().html('Failed to add player to batting order').fadeOut(8000)
+}
+
+const getPlayerSeasonSuccess = function (data) {
+  $('#nav-message').show().html('Players assigned to batting order').fadeOut(8000)
+  const showOrderHtml = showCurrentBattingOrder({ player_seasons: data.player_seasons })
+  console.log('data is', data)
+  $('#display-order').append(showOrderHtml)
+}
+
+const getPlayerSeasonFailure = function (error) {
+  console.error(error)
+  $('#nav-message').show().html('Failed to get any players for batting order').fadeOut(8000)
 }
 
 module.exports = {
@@ -252,6 +281,10 @@ module.exports = {
   listPlayersSuccess,
   listPlayersFailure,
   createPlayerSeasonSuccess,
-  createPlayerSeasonFailure
+  createPlayerSeasonFailure,
+  getPlayerSeasonSuccess,
+  getPlayerSeasonFailure,
+  viewPlayerSeasonsToSelectSuccess,
+  viewPlayerSeasonsToSelectFailure
   // checkFormData
 }

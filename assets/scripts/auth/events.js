@@ -155,6 +155,9 @@ const onOpenBattingRoster = function (event) {
   app_api.viewSeasons()
     .then(app_ui.viewSeasonsToSelectSuccess)
     .catch(app_ui.viewSeasonsToSelectFailure)
+  app_api.getAllPlayerSeasons()
+    .then(app_ui.viewPlayerSeasonsToSelectSuccess)
+    .catch(app_ui.viewPlayerSeasonsToSelectFailure)
 }
 
 const onReturnToTools = function (event) {
@@ -166,7 +169,12 @@ const onReturnToTools = function (event) {
 const onViewRosters = function (event) {
   console.log('onViewRosters called')
   event.preventDefault()
+  const data = getFormFields(this)
   app_ui.viewRosters()
+  // console.log('onViewRosters data is', data)
+  app_api.getPlayerSeason(data)
+    .then(app_ui.getPlayerSeasonSuccess)
+    .catch(app_ui.getPlayerSeasonFailure)
 }
 
 const onAddPlayerPanel = function (event) {
@@ -258,7 +266,7 @@ const addHandlers = function () {
   $('#cancel').on('click', onHidePwForm)
   $('#batting-roster').on('submit', onOpenBattingRoster)
   $('#return-to-tools').on('click', onReturnToTools)
-  $('#view-rosters').on('click', onViewRosters)
+  $('#view-roster-form').on('click', onViewRosters)
   $('#seasons').on('submit', onEditSeasons)
   $('#players').on('submit', onAddPlayerPanel)
   $('#enter-season').on('submit', onEnterSeason)

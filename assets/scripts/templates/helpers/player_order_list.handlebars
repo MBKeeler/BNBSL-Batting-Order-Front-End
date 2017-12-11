@@ -1,0 +1,15 @@
+{{#each player_seasons as |player_season|}}
+
+    {{#if player}}
+        <tr>
+          <td align="left">{{player_season.id}}</td>
+            <td align="left">{{player.batting_position}}</td>
+            <td align="left">{{player.first_name}}</td>
+            <td align="left">{{player.last_name}}</td>
+            <td align="left">{{player.position}}</td>
+        </tr>
+{{else}}
+    There are no players recorded for this batting order.
+{{/if}}
+
+{{/each}}
