@@ -164,20 +164,12 @@ const addPlayers = function () {
   // $('#season-panel').show()
 }
 
-// const showPlayers = function () {
-//   console.log('showPlayers called:', data)
-//   $('.coaches-landing').hide()
-//   $('.add-player-panel').show()
-//   $('#player-display-target').show()
-//   const showPlayersHTML = selectPlayerTemplate({ players: data.players })
-//   $('#player-display-target').append(showPlayersHTML)
-// }
-
 const viewSeasonsToSelectSuccess = function (data) {
   const showSeasonHtml = selectorSeasonTemplate({ seasons: data.seasons })
   $('#select-season-target').append(showSeasonHtml)
   $('#nav-message').show().html('Seasons available for current user').fadeOut(8000)
 }
+
 const viewSeasonsToSelectFailure = function (error) {
   console.error('viewSeasons failed: ', error)
   // $('#view-PlayersList').empty()
@@ -217,11 +209,13 @@ const populatePlayer = function (data) {
   $('#update-bavg').val(bavg)
 }
 
-const createPlayerSeasonSuccess = function (data) {
-  console.log('createPlayerSeasonSuccess data is', data)
+const createPlayerSeasonSuccess = function () {
+  console.log('createPlayerSeasonSuccess called')
+  $('#nav-message').show().html('Player added to season batting order').fadeOut(8000)
 }
 const createPlayerSeasonFailure = function (error) {
   console.error(error)
+  $('#nav-message').show().html('Failed to add player to batting order').fadeOut(8000)
 }
 
 module.exports = {

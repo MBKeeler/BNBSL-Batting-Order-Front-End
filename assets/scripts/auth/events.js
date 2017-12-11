@@ -1,6 +1,6 @@
 'use strict'
 const getFormFields = require(`../../../lib/get-form-fields`)
-const store = require('../store')
+//const store = require('../store')
 const api = require('./api')
 const ui = require('./ui')
 const app_api = require('../app/app_api')
@@ -221,17 +221,19 @@ const onSelectSeason = (event) => {
 
 const onDeleteSeason = (event) => {
   event.preventDefault()
-  console.log('onDeleteSeason called', event)
+  // console.log('onDeleteSeason called', event)
   const data = $(event.target).attr('value')
   app_api.deleteSeason(data)
     .then(app_ui.deleteSeasonSucess)
     .catch(app_ui.deleteSeasonFailure)
 }
 
-const onAssignBattingList = (event) => {
+const onAssignBattingList = function (event) {
+  const data = getFormFields(this)
   event.preventDefault()
-  console.log('onAssignBattingList called', event)
-  app_api.createPlayerSeason(event)
+  console.log('onAssignBattingList called')
+  console.log('event data is', data)
+  app_api.createPlayerSeason(data)
     .then(app_ui.createPlayerSeasonSuccess)
     .catch(app_ui.createPlayerSeasonFailure)
 }
@@ -262,7 +264,7 @@ const addHandlers = function () {
   $('#enter-season').on('submit', onEnterSeason)
   $('#view-seasons').on('click', onViewSeasons)
   $('#season-display-target').on('click', '#deleteSeasonBttn', onDeleteSeason)
-  $('.batting-roster').on('submit', onAssignBattingList)
+  $('#create-roster-form').on('submit', onAssignBattingList)
 }
 
 module.exports = {
