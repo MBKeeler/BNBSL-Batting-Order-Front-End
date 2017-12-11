@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>BNBSL Coaches Tools</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body class="container-fluid" id="site-body">
+      <div id="body-container">
+        <div class="banner">
+        <img class="img-responsive" src="https://i.imgur.com/V3MSs9K.png" alt="Byfield Newbury Baseball & Softball League">
+        </div>
+          <!-- starts our navigation-bar viewable in the app body -->
+                <div class="navigation-bar">
+                    <div id="navbutton"><button id="sign-out" type="click" name="submit">Log Out</button>
+                    </div>
+                    <div id="change-PW">
+                      <button id="change-pw-reveal" type="click">Change Password</button>
+                      <form id="change-password">
+                        <fieldset>
+                          <legend>Change Password</legend>
+                            <input type="password" name="passwords[old]" placeholder="Curent Password">
+                            <br>
+                            <input type="password" name="passwords[new]" placeholder="New Password">
+                            <br>
+                            <button type="submit" >Change Password</button>
+                        </fieldset>
+                        <button id="cancel" type="submit" name="cancel">Cancel</button>
+                        <p id="change-pw-message"></p>
+                      </form>
+                      <!-- <button id="cancel" type="submit" name="cancel">Cancel</button> -->
+                    </div>
+                    <div id="navbutton"><button type="click" id="return-to-tools"name="return-to-tools" value="Return to Coaches Tools">Return To Tools</button></div>
+
+                  <div id="navbar-center">
+                      <div id="nav-message"></div>
+                  </div>
+                  </div>
+          <!-- ends our navigation-bar  -->
+          <!-- starts our primary authentication and welcome-box -->
+                <div class="welcome-box">
+                  <h1>Byfield-Newbury Coaches Tools</h1>
+                  <div class="auth-forms">
+                    <div id="login">
+                      <form id="sign-in">
+                        <fieldset>
+                          <legend>Login</legend>
+                          <input type="text" name="credentials[email]"  placeholder="Enter Username">
+                          <br>
+                          <input id="pw-field" type="password" name="credentials[password]"  placeholder="Password">
+                          <br>
+                          <button type="submit" name="submit" value="Login">Login as Member</button>
+                      </fieldset>
+                    </form>
+                    <br>
+                    <div id="signin-message"></div>
+                    </div>
+                    <div id="register">
+                      <form id="sign-up">
+                        <fieldset>
+                          <legend>Register</legend>
+                            <input type="text" name="credentials[email]" placeholder="User Name">
+                            <br>
+                            <input type="password" name="credentials[password]" placeholder="Enter a Password">
+                            <br>
+                            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                            <br>
+                            <button type="submit" name="submit" value="Register New User">Register New User</button>
+                        </fieldset>
+                      </form>
+                      <div id="signup-message"></div>
+                    </div>
+                </div>
+              </div>
+          <!-- ends our primary atuthentication and welcome-box -->
+
+          <!-- begins coaches landing page -->
+          <div class="coaches-landing">
+          <h3>Choose a Tool</h3>
+            <div class="coaches-tools">
+              <div class="individ-tools">
+                <form id="seasons">
+                <input class="tool-button" id="create-season-tool" type="submit" value="">
+              </form>
+              </div>
+              <div class="individ-tools">
+              <form id="players"><input class="tool-button" id="add-player-tool" type="submit" value="">
+              </form>
+              </div>
+              <div class="individ-tools">
+              <input class="tool-button" id="player-eval-tool" type="submit" value="">
+              </div>
+              <div class="individ-tools">
+              <form id="batting-roster">
+              <input class="tool-button" id="batting-roster-tool" type="submit" value="">
+              </form>
+              </div>
+          </div>
+        </div>
+          <!-- ends coaches landing page -->
+        <!-- begin add player panel -->
+        <div class="add-player-panel">
+          <div id="add-player">
+            <div id="player-form-entry">
+              <form id="enter-player">
+                <fieldset>
+                  <legend>Enter Player Information</legend>
+                  <p class="important_message">All fields except Batting Average are required.</p>
+                  <p>The second step in creating a batting order is to enter the players on your team.  Simply
+                  fill out the required information.  You may delete players or modify from here as well.  After you
+                have added your players, go back to the Coaches Tools and select the Create/View Batting Order
+              tool.</p>
+                  <br>
+                      <label for="fname">First Name:</label> <input id="fname" type="text" name="player[first_name]" placeholder="First Name" required>
+                      <br>
+                      <label for="lname">Last Name:</label> <input id="lname" type="text" name="player[last_name]" placeholder="Last Name" required>
+                      <br>
+                      <label for="position">Select a Player Position:</label>
+                      <select id="position" name="player[position]" required>
+                      <option value="" disabled="disabled" selected="selected">Position</option>
+                      <option value="1 - Pitcher">Pitcher</option>
+                      <option value="2 - Catcher">Catcher</option>
+                      <option value="3 - 1st Base">1st Base</option>
+                      <option value="4 - 2nd Base">2nd Base</option>
+                      <option value="5 - 3rd Base">3rd Base</option>
+                      <option value="6 - Short Stop">Short Stop</option>
+                      <option value="7 - Left Field">Left Field</option>
+                      <option value="8 - Center Field">Center Field</option>
+                      <option value="9 - Right Field">Right Field</option>
+                  </select>
+                  <br>
+                  <label for="bposition">Position in Batting Order:</label>
+                  <select id="bposition" name="player[batting_position]" required>
+                      <option value="" disabled="disabled" selected="selected">Position</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                  </select>
+                  <br>
+                  <label for="bavg">Batting Average: </label><input id="bavg" class="score" type="text" name="player[batting_avg]" maxlength="3" size="3">
+                  <br>
+                  <button type="submit" name="submit" value="Enter New Player">Enter New Player</button>
+              </fieldset>
+            </form>
+            <!-- begin update player form -->
+            <div id="update-form-panel" class="collapse">
+              <form id="update-player" class="card card-body">
+                <fieldset>
+                  <legend>Update Player</legend>
+                  <br>
+                      <label for="playerId">Player ID:</label> <input id="update-playerId" type="text" name="player[id]" placeholder="ID" maxlength="4" size="4" readonly>
+                      <br>
+                      <label for="fname">First Name:</label> <input id="update-fname" type="text" name="player[first_name]" placeholder="First Name" required>
+                      <br>
+                      <label for="lname">Last Name:</label> <input id="update-lname" type="text" name="player[last_name]" placeholder="Last Name" required>
+                      <br>
+                      <label for="position">Update Player Position:</label>
+                      <select id="update-position" name="player[position]" required>
+                      <option value="" disabled="disabled" selected="selected">Position</option>
+                      <option value="1 - Pitcher">Pitcher</option>
+                      <option value="2 - Catcher">Catcher</option>
+                      <option value="3 - 1st Base">1st Base</option>
+                      <option value="4 - 2nd Base">2nd Base</option>
+                      <option value="5 - 3rd Base">3rd Base</option>
+                      <option value="6 - Short Stop">Short Stop</option>
+                      <option value="7 - Left Field">Left Field</option>
+                      <option value="8 - Center Field">Center Field</option>
+                      <option value="9 - Right Field">Right Field</option>
+                  </select>
+                  <br>
+                  <label for="bposition">Update Position in Batting Order:</label>
+                  <select id="update-bposition" name="player[batting_position]" required>
+                      <option value="" disabled="disabled" selected="selected">Position</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                  </select>
+                  <br>
+                  <label for="bavg">Update Batting Average: </label><input id="update-bavg" class="score" type="text" name="player[batting_avg]" maxlength="3" size="3" required>
+                  <br>
+                  <button type="submit" name="submit" value="Enter New Player">Update Player</button>
+              </fieldset>
+            </form>
+            </div>
+            <!-- end update playerform -->
+            <!-- begin section to display list of players -->
+          </div>
+            <div id="player-display-target"></div>
+          </div>
+            <!-- ends section for displaying list of players  -->
+        </div>
+        <!-- end add player panel -->
+
+        <!-- begin batting roster panel -->
+        <div class="batting-roster">
+          <div id="roster-entry">
+            <div id="create-roster-panel">
+              <h4>Adding Players to a Batting Order</h4>
+              <p>Before a player may be added to a batting order, both a Season and a
+              Player must be created. If you have not done so, return to the Coaches
+            Tools and create a season and/or player.</p>
+            <form id="create-roster-form">
+              <fieldset>
+                <select name="player_season[season_id]" class="select-season-target">
+                </select>
+                <br>
+                <select name="player_season[player_id]" id="select-player-target">
+                </select>
+              </fieldset>
+              <button type="submit" name="submit">Add Order</button>
+            </form>
+          </div>
+          <div id="view-roster-form-panel">
+            <h4>Viewing a Batting Order</h4>
+            <p>The final step in viewing a batting order is to select a season to
+            display. If you have not created a Season, Player, or added players to
+          a season, then please do so before viewing the order</p>
+            <form id="view-roster-form">
+              <fieldset>
+                <label for="season-selected">Season Selected:</label>
+                <select name="player_season[id]" class="select-playerseason-target">
+                </select>
+                <br><br>
+                <button type="click" id="view-rosters" name="view-rosters" value="View Rosters">View Batting Order</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+        <!-- end batting form roster panel -->
+
+        <!-- begin roster view panel -->
+        <div class="view-roster-panel">
+          <div id="view-roster">
+            <div id="dynamic-field-map">
+              <legend id="batting-order-legend">Batting Order</legend>
+              <table id="batting-order-display" cellspacing="5">
+                <tr>
+                    <th>Postion</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Batter#</th>
+                </tr>
+                <tbody id="display-order">
+                </tbody>
+                </table>
+                <!-- <div id="display-roster"> -->
+                </div>
+            </div>
+          </div>
+        <!-- </div> -->
+        <!-- end roster view panel -->
+
+        <!-- begin enter season panel -->
+        <div class="enter-season-panel">
+          <div id="season-panel">
+            <div id="enter-panel">
+        <form id="enter-season">
+          <fieldset>
+            <legend>Enter Season</legend>
+            <p>The first step in creating a batting order is to create a season.
+            In most cases a coach will only be expected to have a single team
+          during a given season.  Enter the season year, team, and program that
+        you as a coach will be responsible for.</p>
+            <p class="important_message">Note:All fields required.</p>
+            <label for="season">Season:</label>
+              <select id="season" name="season[year]" required>
+                  <option value="" disabled="disabled" selected="selected">Season</option>
+                  <option value="2018">2018</option>
+                  <option value="2019">2019</option>
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+              </select>
+              <br>
+              <label for="team">Team:</label> <select id="team" name="season[team]" required>
+                <option value="" disabled="disabled" selected="selected">Team</option>
+                <option value="Astros">Astros</option>
+                <option value="Dodgers">Diamond Backs</option>
+                <option value="Astros">Dodgers</option>
+                <option value="Dodgers">Red Sox</option>
+                <option value="B/N Nike">B/N Nike</option>
+                <option value="B/N Flames">B/N Flames</option>
+            </select>
+            <br>
+              <lable for="program">Select a Program:</label>
+              <select id="program" name="season[program]" required>
+                  <option value="" disabled="disabled" selected="selected">Program</option>
+                  <option value="Single A">Single A</option>
+                  <option value="Double A">Double A</option>
+                  <option value="Triple A">Triple A</option>
+                  <option value="Softball Farm">Softball Farm</option>
+                  <option value="Softball Juniors">Softball Juniors</option>
+                  <option value="Softball Seniors">Softball Seniors</option>
+              </select>
+              <br>
+              <button type="submit" name="submit" value="Enter New Player">Enter New Season</button>
+          </fieldset>
+        </form>
+      </div>
+            <div id="season-display-area">
+            <div id="season-display-target">
+              <lengend><span style="font-size: 150%">Your Existing Seasons</span></legend>
+              <hr></hr>
+            </div>
+            </div>
+        </div>
+      </div>
+        <!-- end enter season panel -->
+
+        <!-- end season panels -->
+
+<div><script src="https://chatwee-api.com/v2/script/58cb359cbd616dc539fda3e1.js"></script></div>
+
+<!-- ends the area where we can view data -->
+
+      </div>
+    </body>
+</html>
