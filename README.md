@@ -20,6 +20,12 @@ The user will notice a chat icon or chat window located in the lower half of the
 screen upon landing on the site. Administration of the Chatwee features is done
 in a secure dashboard that is completely separate from this project.
 
+## Know Issue
+Handlebars.js is used throughout the application.  There is a know issue in
+refreshing various lists after an add, delete, or modify action has taken place.
+Latency exists with the server where data may not be refreshed when reloaded by
+application methods.  
+
 ## On Github
 Front End Code Repo: https://github.com/MBKeeler/BNBSL-Batting-Order-Front-End
 Frond End Code Hosted: https://mbkeeler.github.io/BNBSL-Batting-Order-Front-End/
@@ -31,6 +37,8 @@ https://imgur.com/a/5FK49
 
 ## Front-end Technologies
 Javascript
+Ajax
+Bootstrap
 Jquery Handlebars.js
 HTML
 CSS
@@ -42,28 +50,26 @@ MVP Stories:
 
 - As a coach, I want to be able to login to the application.
 
+- As a coach I want to be able create a season with a year, team, and program.
+
 - As a coach I want to be able to create a player and assign that player to a team.
 
 - As a coach I want to be able to assign a player to a field position.
 
 - As a coach I want to be able to assign a player to a position on the batting order.
 
-- As a coach I want to be able to edit my roster and field positions.
+- As a coach I want to be able to edit my player.
 
 - As a coach I want to be able to view my team batting roster.
+
+
+Secondary Priority Stories:
 
 - As a coach I want to be able to view a graphical representation of player position assignments in the context of a baseball/softball diamond.
 
 - As a coach I want to be able to view the application on my smartphone, tablet, laptop, or desktop without loss of functionality.
 
-- As a coach I want to be able to download a csv file containing my team batting roster with player assignment and position.
-
 - As a coach I want the #4 batting position to be visually highlighted as the “clean-up hitter”.
-
-- As a coach I only want to see my teams, but as an administrator I want to see all teams.
-
-
-Secondary Priority Stories:
 
 - As a coach I want to be able to email or text the csv (or pdf if available) to another coach
 
@@ -74,6 +80,10 @@ Secondary Priority Stories:
 - As a coach I want to be able to view typical batting position name and characteristics. For example:
 
 - Lead off hitter – high speed, base stealing capability, plate discipline
+
+- As a coach I want to be able to download a csv file containing my team batting roster with player assignment and position.
+
+- As a coach I only want to see my teams, but as an administrator I want to see all teams.
 
       Contact hitter –
 
