@@ -222,22 +222,22 @@
             <div id="create-roster-panel">
             <form id="create-roster-form">
               <fieldset>
-                <select id="select-season-target">
+                <select name="player_season[season_id]" id="select-season-target">
                 </select>
                 <br>
-                <select id="select-player-target">
+                <select name="player_season[player_id]" id="select-player-target">
                 </select>
               </fieldset>
-              <button type="submit">Add Order</button>
+              <button type="submit" name="submit">Add Order</button>
             </form>
             <div id="view-roster-form-panel">
-              <form id="view-roster-form">
+              <!-- <form id="view-roster-form">
                 <fieldset>
                   <label for="season-selected">Season Selected:</label><input id="season-selected" class="score" type="text" name="season[id]" required>
                   <br>
                   <button type="click" id="view-rosters" name="view-rosters" value="View Rosters">View Batting Order</button>
                 </fieldset>
-              </form>
+              </form> -->
             </div>
           </div>
         </div>
